@@ -56,34 +56,14 @@
             </nav>
 
             <div class="flex items-center gap-2">
-                <!-- Icon-Only LTR/RTL Direction Toggle Button -->
-                <button
-                    id="rtlToggle"
-                    class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
-                    title="Toggle Text Direction (LTR / RTL)"
-                >
-                    <!-- Dynamically rendered via main.js -->
-                </button>
-
-                <!-- Icon-Only Theme Toggle Button -->
-                <button
-                    id="themeToggle"
-                    class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
-                    title="Toggle Dark/Light Mode"
-                >
-                    <!-- Dynamically rendered via main.js -->
-                </button>
-
-                <a
-                    href="contact.html#booking"
-                    class="hidden sm:inline-flex bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg hover:bg-blue-700"
-                >Book Appointment</a>
+                <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center" title="Toggle Text Direction"></button>
+                <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center" title="Toggle Dark/Light Mode"></button>
+                <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg hover:bg-blue-700">Book Appointment</a>
             </div>
         </div>
     </header>
 
     <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-20">
             <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Clinical Modalities</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-2">Advanced Diagnostic Services</h1>
@@ -92,15 +72,11 @@
             </p>
         </div>
 
-        <!-- Detailed Modality Stack -->
         <div class="space-y-16">
-            
             <!-- Modality 1: 3T MRI -->
             <div id="3T_Wide" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
                 <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase">
-                        <span>●</span> High-Field Magnetic Resonance
-                    </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase"><span>●</span> High-Field Magnetic Resonance</div>
                     <h2 class="text-3xl font-extrabold">3T Wide-Bore MRI</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                         Our high-field 3T magnetic resonance imaging systems deliver superior spatial resolution for soft tissues, neurological structures, and musculoskeletal evaluations[cite: 7]. Built with an expanded wide-bore architecture to dramatically minimize claustrophobia and lower acoustic scanning noise[cite: 7].
@@ -115,12 +91,7 @@
                             <p class="text-xs text-slate-500 mt-1">Wider tunnel opening, ambient lighting, and ear-defense sound suppression.</p>
                         </div>
                     </div>
-                    <div>
-                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-blue-700 transition-all">
-                            <span>Schedule 3T MRI Scan</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                    </div>
+                    <div><a href="contact.html#booking" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-blue-700 transition-all"><span>Schedule 3T MRI Scan</span></a></div>
                 </div>
                 <div class="lg:col-span-6">
                     <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
@@ -137,9 +108,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase">
-                        <span>●</span> Ultra-Fast Computed Tomography
-                    </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase"><span>●</span> Ultra-Fast Computed Tomography</div>
                     <h2 class="text-3xl font-extrabold">128-Slice CT Scan</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                         Lightning-fast computed tomography offering high-definition 3D rendering of internal organs, vasculature, and skeletal structures[cite: 7]. Integrated with advanced dose-modulation software to maintain strict patient radiation safety standards[cite: 7].
@@ -154,21 +123,14 @@
                             <p class="text-xs text-slate-500 mt-1">Iterative AI reconstruction ensuring minimal radiation exposure.</p>
                         </div>
                     </div>
-                    <div>
-                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all">
-                            <span>Schedule CT Scan</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                    </div>
+                    <div><a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all"><span>Schedule CT Scan</span></a></div>
                 </div>
             </div>
 
             <!-- Modality 3: High-Res Ultrasound -->
             <div id="Ultrasound" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
                 <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase">
-                        <span>●</span> Real-Time Sonography
-                    </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase"><span>●</span> Real-Time Sonography</div>
                     <h2 class="text-3xl font-extrabold">High-Resolution Ultrasound</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                         Non-invasive diagnostic sonography utilizing high-frequency sound waves to generate real-time moving images of soft tissues, blood vessels, and internal organs with zero ionizing radiation exposure[cite: 7].
@@ -183,12 +145,7 @@
                             <p class="text-xs text-slate-500 mt-1">Painless, fast procedure with immediate specialist review.</p>
                         </div>
                     </div>
-                    <div>
-                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-blue-700 transition-all">
-                            <span>Schedule Ultrasound</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                    </div>
+                    <div><a href="contact.html#booking" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-blue-700 transition-all"><span>Schedule Ultrasound</span></a></div>
                 </div>
                 <div class="lg:col-span-6">
                     <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
@@ -205,9 +162,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase">
-                        <span>●</span> Digital Radiography
-                    </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase"><span>●</span> Digital Radiography</div>
                     <h2 class="text-3xl font-extrabold">Digital X-Ray Systems</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                         Instantaneous digital X-ray imaging designed to evaluate skeletal structures, bone fractures, and thoracic conditions with maximum image sharpness and minimal radiation exposure time[cite: 7].
@@ -222,19 +177,12 @@
                             <p class="text-xs text-slate-500 mt-1">Walk-in friendly with script; images available to physicians instantly.</p>
                         </div>
                     </div>
-                    <div>
-                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all">
-                            <span>Schedule X-Ray</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                    </div>
+                    <div><a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all"><span>Schedule X-Ray</span></a></div>
                 </div>
             </div>
-
         </div>
     </main>
-
-     <!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
+<!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
     <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 text-sm text-slate-600 dark:text-slate-400">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         
@@ -252,26 +200,22 @@
           
           <!-- Social Media Icons -->
           <div class="flex items-center gap-3 pt-2">
-            <!-- LinkedIn -->
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="LinkedIn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
-            <!-- Twitter / X -->
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Twitter / X">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <!-- Facebook -->
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Facebook">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
             </a>
-            <!-- YouTube -->
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="YouTube">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Navigation Links (Redirect to Correct Pages) -->
+        <!-- Navigation Links -->
         <div>
           <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
           <ul class="space-y-2.5 text-xs">
@@ -283,7 +227,7 @@
           </ul>
         </div>
 
-        <!-- Modality Links (Updated with exact target IDs for precise redirection) -->
+        <!-- Modality Links with precise target IDs -->
         <div>
           <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
           <ul class="space-y-2.5 text-xs">
@@ -309,7 +253,7 @@
         <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
         <div class="flex gap-6 mt-4 md:mt-0">
           <a href="privacy.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Privacy Policy</a>
-          <a href="complaince.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">HIPAA Compliance</a>
+          <a href="hipaa.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">HIPAA Compliance</a>
           <a href="terms.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Terms of Use</a>
         </div>
       </div>
