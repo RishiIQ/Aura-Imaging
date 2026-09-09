@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIPAA Compliance & Patient Rights | Aura Imaging</title>
+    <link rel="shortcut icon" href="./mri.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        m3: {
+                            surface: '#F8FAFC',
+                            surfaceContainer: '#F1F5F9',
+                            primary: '#0F172A',
+                            cyanAccent: '#06B6D4',
+                            medicalBlue: '#2563EB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Physician digital referrals & 24/7 priority booking active. Call <strong>(555) 123-4567</strong></span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 group-hover:scale-105 transition-transform">
+                    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Aura</span>
+                    <span class="text-xs font-semibold text-blue-600 dark:text-cyan-400 tracking-widest uppercase mt-0.5">Imaging</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-1 bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="index.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+                <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services</a>
+                <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Scan</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a>
+                <a href="contact.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <!-- Icon-Only LTR/RTL Direction Toggle Button -->
+                <button
+                    id="rtlToggle"
+                    class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
+                    title="Toggle Text Direction (LTR / RTL)"
+                >
+                </button>
+
+                <!-- Icon-Only Theme Toggle Button -->
+                <button
+                    id="themeToggle"
+                    class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
+                    title="Toggle Dark/Light Mode"
+                >
+                </button>
+
+                <a
+                    href="contact.html#booking"
+                    class="hidden sm:inline-flex bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg hover:bg-blue-700"
+                >Book Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Regulatory Compliance</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-2">HIPAA Compliance & Patient Rights</h1>
+            <p class="mt-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                Aura Imaging is deeply committed to protecting your medical privacy rights and maintaining absolute compliance with the Health Insurance Portability and Accountability Act (HIPAA).
+            </p>
+        </div>
+
+        <!-- Content Body -->
+        <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-10 text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+            
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white">Notice of Privacy Practices</h2>
+                <p>
+                    This notice describes how medical information about you may be used and disclosed and how you can get access to this information. Please review it thoroughly. We are legally required by federal law to maintain the privacy of your Protected Health Information (PHI).
+                </p>
+            </section>
+
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white">Your Patient Rights Under HIPAA</h2>
+                <p>As a patient at Aura Imaging, you maintain explicit control and access rights over your health records:</p>
+                <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
+                    <li><strong>Right to Inspect and Copy:</strong> You can request and review digital copies of your diagnostic MRI, CT, ultrasound, or X-ray reports and imaging files.</li>
+                    <li><strong>Right to Request Restrictions:</strong> You have the right to request limitations on certain uses or disclosures of your protected health data.</li>
+                    <li><strong>Right to Confidential Communications:</strong> You may request that we communicate with you regarding your medical matters in a specific alternative location or manner.</li>
+                    <li><strong>Right to an Accounting of Disclosures:</strong> You can request a record of instances where we have shared your health data outside clinical necessity.</li>
+                </ul>
+            </section>
+
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white">Filing a Privacy or Compliance Complaint</h2>
+                <p>
+                    If you believe your privacy rights have been violated, you may file a formal grievance directly with our internal compliance department or with the U.S. Department of Health and Human Services. We guarantee that filing a complaint will never result in retaliation or affect the quality of your clinical care.
+                </p>
+                <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 space-y-2 mt-4">
+                    <p class="font-bold text-slate-900 dark:text-white">Aura Imaging Compliance & Grievance Department</p>
+                    <p class="text-xs text-slate-500">1250 Medical Plaza Way, Suite 100, Metropolis, NY 10001</p>
+                    <p class="text-xs text-slate-500">Email: compliance@auraimaging.com | Direct Phone: (555) 123-4568</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 text-sm text-slate-600 dark:text-slate-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Info & Social Icons -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1.5">
+              <img src="./mri.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+            <span class="text-xl font-extrabold text-slate-900 dark:text-white">Aura <span class="text-blue-600 dark:text-cyan-400">Imaging</span></span>
+          </div>
+          <p class="text-xs leading-relaxed text-slate-500">
+            State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
+          </p>
+          
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Twitter / X">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Facebook">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="YouTube">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a></li>
+            <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services & Modalities</a></li>
+            <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Your Scan</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a></li>
+            <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Modality Links -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">3T Wide-Bore MRI</a></li>
+            <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">128-Slice CT Scan</a></li>
+            <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">High-Res Ultrasound</a></li>
+            <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Digital X-Ray</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Center -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
+          <p class="text-xs text-slate-500 mb-2">1250 Medical Plaza Way, Suite 100</p>
+          <p class="text-xs text-slate-500 mb-2">Phone: (555) 123-4567</p>
+          <p class="text-xs text-slate-500">Email: scheduling@auraimaging.com</p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+        <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="privacy.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Privacy Policy</a>
+          <a href="complaince.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">HIPAA Compliance</a>
+          <a href="terms.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

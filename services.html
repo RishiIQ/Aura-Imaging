@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Modalities | Aura Imaging</title>
+    <link rel="shortcut icon" href="./mri.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        m3: {
+                            surface: '#F8FAFC',
+                            surfaceContainer: '#F1F5F9',
+                            primary: '#0F172A',
+                            cyanAccent: '#06B6D4',
+                            medicalBlue: '#2563EB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Physician digital referrals & 24/7 priority booking active. Call <strong>(555) 123-4567</strong></span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 group-hover:scale-105 transition-transform">
+                    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Aura</span>
+                    <span class="text-xs font-semibold text-blue-600 dark:text-cyan-400 tracking-widest uppercase mt-0.5">Imaging</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-1 bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="index.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+                <a href="services.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm font-semibold">Services</a>
+                <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Scan</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a>
+                <a href="contact.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <!-- Icon-Only LTR/RTL Direction Toggle Button -->
+                <button
+                    id="rtlToggle"
+                    class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
+                    title="Toggle Text Direction (LTR / RTL)"
+                >
+                    <!-- Dynamically rendered via main.js -->
+                </button>
+
+                <!-- Icon-Only Theme Toggle Button -->
+                <button
+                    id="themeToggle"
+                    class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
+                    title="Toggle Dark/Light Mode"
+                >
+                    <!-- Dynamically rendered via main.js -->
+                </button>
+
+                <a
+                    href="contact.html#booking"
+                    class="hidden sm:inline-flex bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg hover:bg-blue-700"
+                >Book Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Clinical Modalities</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-2">Advanced Diagnostic Services</h1>
+            <p class="mt-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                Aura Imaging deploys next-generation scanning hardware integrated with AI-assisted software algorithms, delivering unmatched anatomical resolution, faster exam times, and patient-centered safety standards[cite: 7].
+            </p>
+        </div>
+
+        <!-- Detailed Modality Stack -->
+        <div class="space-y-16">
+            
+            <!-- Modality 1: 3T MRI -->
+            <div id="3T_Wide" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase">
+                        <span>●</span> High-Field Magnetic Resonance
+                    </div>
+                    <h2 class="text-3xl font-extrabold">3T Wide-Bore MRI</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Our high-field 3T magnetic resonance imaging systems deliver superior spatial resolution for soft tissues, neurological structures, and musculoskeletal evaluations[cite: 7]. Built with an expanded wide-bore architecture to dramatically minimize claustrophobia and lower acoustic scanning noise[cite: 7].
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-blue-600 dark:text-cyan-400">Applications</h4>
+                            <p class="text-xs text-slate-500 mt-1">Brain, spine, neurological tracts, cartilage, and sports injuries.</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-blue-600 dark:text-cyan-400">Patient Comfort</h4>
+                            <p class="text-xs text-slate-500 mt-1">Wider tunnel opening, ambient lighting, and ear-defense sound suppression.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-blue-700 transition-all">
+                            <span>Schedule 3T MRI Scan</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80" alt="3T MRI Suite" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modality 2: 128-Slice CT Scan -->
+            <div id="CT_Scan" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80" alt="128-Slice CT System" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase">
+                        <span>●</span> Ultra-Fast Computed Tomography
+                    </div>
+                    <h2 class="text-3xl font-extrabold">128-Slice CT Scan</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Lightning-fast computed tomography offering high-definition 3D rendering of internal organs, vasculature, and skeletal structures[cite: 7]. Integrated with advanced dose-modulation software to maintain strict patient radiation safety standards[cite: 7].
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-cyan-600 dark:text-cyan-400">Applications</h4>
+                            <p class="text-xs text-slate-500 mt-1">Cardiac CT, coronary scoring, pulmonary angiography, and trauma screening.</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-cyan-600 dark:text-cyan-400">Safety Profile</h4>
+                            <p class="text-xs text-slate-500 mt-1">Iterative AI reconstruction ensuring minimal radiation exposure.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all">
+                            <span>Schedule CT Scan</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modality 3: High-Res Ultrasound -->
+            <div id="Ultrasound" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase">
+                        <span>●</span> Real-Time Sonography
+                    </div>
+                    <h2 class="text-3xl font-extrabold">High-Resolution Ultrasound</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Non-invasive diagnostic sonography utilizing high-frequency sound waves to generate real-time moving images of soft tissues, blood vessels, and internal organs with zero ionizing radiation exposure[cite: 7].
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-blue-600 dark:text-cyan-400">Applications</h4>
+                            <p class="text-xs text-slate-500 mt-1">Vascular Doppler flow, abdominal scanning, pelvic, and obstetric evaluations.</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-blue-600 dark:text-cyan-400">Patient Experience</h4>
+                            <p class="text-xs text-slate-500 mt-1">Painless, fast procedure with immediate specialist review.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-blue-700 transition-all">
+                            <span>Schedule Ultrasound</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1000&q=80" alt="Ultrasound Diagnostics" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modality 4: Digital Radiography -->
+            <div id="XRay" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="Digital Radiography Suite" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase">
+                        <span>●</span> Digital Radiography
+                    </div>
+                    <h2 class="text-3xl font-extrabold">Digital X-Ray Systems</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Instantaneous digital X-ray imaging designed to evaluate skeletal structures, bone fractures, and thoracic conditions with maximum image sharpness and minimal radiation exposure time[cite: 7].
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-cyan-600 dark:text-cyan-400">Applications</h4>
+                            <p class="text-xs text-slate-500 mt-1">Skeletal trauma, orthopedic evaluations, and chest radiography.</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-bold text-xs uppercase text-cyan-600 dark:text-cyan-400">Workflow</h4>
+                            <p class="text-xs text-slate-500 mt-1">Walk-in friendly with script; images available to physicians instantly.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all">
+                            <span>Schedule X-Ray</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+     <!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 text-sm text-slate-600 dark:text-slate-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Info & Social Icons -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1.5">
+              <img src="./mri.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+            <span class="text-xl font-extrabold text-slate-900 dark:text-white">Aura <span class="text-blue-600 dark:text-cyan-400">Imaging</span></span>
+          </div>
+          <p class="text-xs leading-relaxed text-slate-500">
+            State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
+          </p>
+          
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Twitter / X">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Facebook">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="YouTube">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links (Redirect to Correct Pages) -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a></li>
+            <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services & Modalities</a></li>
+            <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Your Scan</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a></li>
+            <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Modality Links (Updated with exact target IDs for precise redirection) -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">3T Wide-Bore MRI</a></li>
+            <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">128-Slice CT Scan</a></li>
+            <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">High-Res Ultrasound</a></li>
+            <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Digital X-Ray</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Center -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
+          <p class="text-xs text-slate-500 mb-2">1250 Medical Plaza Way, Suite 100</p>
+          <p class="text-xs text-slate-500 mb-2">Phone: (555) 123-4567</p>
+          <p class="text-xs text-slate-500">Email: scheduling@auraimaging.com</p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+        <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="privacy.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Privacy Policy</a>
+          <a href="complaince.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">HIPAA Compliance</a>
+          <a href="terms.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

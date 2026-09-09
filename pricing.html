@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Insurance | Aura Imaging</title>
+    <link rel="shortcut icon" href="./mri.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        m3: {
+                            surface: '#F8FAFC',
+                            surfaceContainer: '#F1F5F9',
+                            primary: '#0F172A',
+                            cyanAccent: '#06B6D4',
+                            medicalBlue: '#2563EB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Physician digital referrals & 24/7 priority booking active. Call <strong>(555) 123-4567</strong></span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 group-hover:scale-105 transition-transform">
+                    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Aura</span>
+                    <span class="text-xs font-semibold text-blue-600 dark:text-cyan-400 tracking-widest uppercase mt-0.5">Imaging</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-1 bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="index.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+                <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services</a>
+                <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Scan</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm font-semibold">Pricing & Insurance</a>
+                <a href="contact.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+          <!-- Icon-Only LTR/RTL Direction Toggle Button -->
+          <button
+            id="rtlToggle"
+            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
+            title="Toggle Text Direction (LTR / RTL)"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12h18M3 6h15M3 18h12"
+              />
+            </svg>
+          </button>
+
+          <!-- Icon-Only Theme Toggle Button -->
+          <button
+            id="themeToggle"
+            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center"
+            title="Toggle Dark/Light Mode"
+          >
+            <!-- Dynamically rendered via main.js -->
+          </button>
+
+          <a
+            href="contact.html#booking"
+            class="hidden sm:inline-flex bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg hover:bg-blue-700"
+            >Book Appointment</a
+          >
+        </div>
+        </div>
+    </header>
+
+    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Billing Transparency</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-2">Insurance Networks & Transparent Pricing</h1>
+            <p class="mt-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                At Aura Imaging, we believe healthcare pricing should be entirely transparent. We partner with all major health insurance networks and provide fixed, predictable self-pay options with zero unexpected hospital facility fees.
+            </p>
+        </div>
+
+        <!-- Two Column Insurance & Self-Pay Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <!-- Insurance Box -->
+            <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold mb-6 text-lg">INS</div>
+                    <h3 class="text-2xl font-bold mb-4">Accepted Insurance Networks</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                        We are an in-network provider for most regional and national insurance carriers. Our dedicated insurance verification team works directly with your provider to pre-authorize your scan before you arrive.
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium mb-8">
+                        <li class="flex items-center gap-2">✔ Medicare & Medicaid</li>
+                        <li class="flex items-center gap-2">✔ Blue Cross Blue Shield</li>
+                        <li class="flex items-center gap-2">✔ UnitedHealthcare</li>
+                        <li class="flex items-center gap-2">✔ Aetna Health Plans</li>
+                        <li class="flex items-center gap-2">✔ Cigna Healthcare</li>
+                        <li class="flex items-center gap-2">✔ Humana Commercial</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
+                    <h4 class="font-bold text-xs uppercase text-blue-600 dark:text-cyan-400 mb-1">Pre-Authorization Support</h4>
+                    <p class="text-xs text-slate-500">Need help verifying your co-pay or deductible? Call our billing advocates at (555) 123-4567.</p>
+                </div>
+            </div>
+
+            <!-- Self-Pay Box -->
+            <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold mb-6 text-lg">SELF</div>
+                    <h3 class="text-2xl font-bold mb-4">Self-Pay & High Deductibles</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                        For uninsured patients or those navigating high-deductible health plans, Aura Imaging offers bundled package rates that combine scanner usage, technologist care, and expert radiologist reporting into one flat fee.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-3">
+                            <span class="text-slate-600 dark:text-slate-300 font-medium">Digital X-Ray Package</span>
+                            <strong class="text-slate-900 dark:text-white">$150 - $250</strong>
+                        </div>
+                        <div class="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-3">
+                            <span class="text-slate-600 dark:text-slate-300 font-medium">High-Res Ultrasound</span>
+                            <strong class="text-slate-900 dark:text-white">$350 - $550</strong>
+                        </div>
+                        <div class="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-3">
+                            <span class="text-slate-600 dark:text-slate-300 font-medium">128-Slice CT Scan</span>
+                            <strong class="text-slate-900 dark:text-white">$650 - $950</strong>
+                        </div>
+                        <div class="flex justify-between items-center text-sm pb-1">
+                            <span class="text-slate-600 dark:text-slate-300 font-medium">3T Wide-Bore MRI</span>
+                            <strong class="text-slate-900 dark:text-white">$850 - $1,250</strong>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html#booking" class="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-6 py-4 rounded-full font-semibold text-sm text-center shadow-md hover:bg-slate-800 transition-all">
+                    Request Custom Financial Estimate
+                </a>
+            </div>
+        </div>
+
+        <!-- Featured Facility Image Gallery Context -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div class="rounded-3xl overflow-hidden shadow-lg h-72 border border-slate-200 dark:border-slate-800 relative group">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Reception Desk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-white text-sm font-semibold">Comfortable, Modern Reception Lounges</span>
+                </div>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-lg h-72 border border-slate-200 dark:border-slate-800 relative group">
+                <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="Consultation Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-white text-sm font-semibold">Private Billing & Insurance Counseling</span>
+                </div>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-lg h-72 border border-slate-200 dark:border-slate-800 relative group">
+                <img src="https://images.unsplash.com/photo-1512677800887-52a7b679f226?auto=format&fit=crop&w=800&q=80" alt="Diagnostic Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-white text-sm font-semibold">State-of-the-Art Scanning Suites</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 text-sm text-slate-600 dark:text-slate-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Info & Social Icons -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1.5">
+              <img src="./mri.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+            <span class="text-xl font-extrabold text-slate-900 dark:text-white">Aura <span class="text-blue-600 dark:text-cyan-400">Imaging</span></span>
+          </div>
+          <p class="text-xs leading-relaxed text-slate-500">
+            State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
+          </p>
+          
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Twitter / X">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Facebook">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="YouTube">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links (Redirect to Correct Pages) -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a></li>
+            <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services & Modalities</a></li>
+            <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Your Scan</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a></li>
+            <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Modality Links (Updated with exact target IDs for precise redirection) -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">3T Wide-Bore MRI</a></li>
+            <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">128-Slice CT Scan</a></li>
+            <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">High-Res Ultrasound</a></li>
+            <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Digital X-Ray</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Center -->
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
+          <p class="text-xs text-slate-500 mb-2">1250 Medical Plaza Way, Suite 100</p>
+          <p class="text-xs text-slate-500 mb-2">Phone: (555) 123-4567</p>
+          <p class="text-xs text-slate-500">Email: scheduling@auraimaging.com</p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+        <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="privacy.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Privacy Policy</a>
+          <a href="complaince.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">HIPAA Compliance</a>
+          <a href="terms.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+</html>
