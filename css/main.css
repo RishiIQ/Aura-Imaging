@@ -35,3 +35,79 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #F47B2A;
 }
+
+/* =================================================================xture 
+   Aura Imaging - Custom Responsive Media Queries & UX Enhancements
+   ================================================================ */
+
+/* 1. Extra Small Mobile Devices (Phones under 380px wide) */
+@media screen and (max-width: 379px) {
+  .max-w-7xl {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.875rem !important; /* Prevents oversized header wrapping */
+    line-height: 1.2 !important;
+  }
+  
+  /* Expand touch targets for small mobile screens */
+  button, a.inline-flex {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 2. Tablet Portrait and Compact Laptops (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  
+  main {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* 3. Landscape Viewport Optimization for Mobile Modals & Drawers */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  header.sticky {
+    position: relative !important;
+  }
+  
+  #scanOverlay {
+    display: none !important; /* Skip heavy load screen on quick landscape orientation switches */
+  }
+}
+
+/* 4. High-Resolution Retina Displays (Sharper Medical UI Rendering) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 5. Print Optimization for Medical Receipts, Invoices, and Compliance Guides */
+@media print {
+  header, footer, #scanOverlay, button {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .shadow-sm, .shadow-2xl {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+}

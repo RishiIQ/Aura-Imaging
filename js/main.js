@@ -86,3 +86,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+// Mobile Hamburger Navigation Drawer Toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Mobile Hamburger Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // 2. Dynamic Active Navigation Highlighting
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  
+  document.querySelectorAll('header nav a, #mobileMenu a').forEach(link => {
+    const href = link.getAttribute('href');
+    
+    if (href === currentPath) {
+      if (link.closest('#mobileMenu')) {
+        link.className = "block px-4 py-3 rounded-xl font-semibold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 transition-colors";
+      } else {
+        link.className = "px-4 py-2 rounded-full bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm font-semibold transition-all";
+      }
+    } else {
+      if (link.closest('#mobileMenu')) {
+        link.className = "block px-4 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors";
+      } else {
+        link.className = "px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors";
+      }
+    }
+  });
+});
