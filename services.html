@@ -25,17 +25,42 @@
             }
         }
     </script>
+    <style>
+      /* Smooth bidirectional directional reveal animations */
+      .reveal-from-left,
+      .reveal-from-right,
+      .reveal-from-bottom,
+      .reveal-from-top {
+        opacity: 0;
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+
+      .reveal-from-left { transform: translateX(-60px); }
+      .reveal-from-right { transform: translateX(60px); }
+      .reveal-from-bottom { transform: translateY(60px); }
+      .reveal-from-top { transform: translateY(-60px); }
+
+      /* Trigger state when visible in viewport */
+      .reveal-from-left.is-visible,
+      .reveal-from-right.is-visible,
+      .reveal-from-bottom.is-visible,
+      .reveal-from-top.is-visible {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300 overflow-x-hidden">
 
     <!-- Top Announcement Banner -->
-    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2">
+    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2 reveal-from-top">
         <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
         <span>Physician digital referrals & 24/7 priority booking active. Call <strong>(555) 123-4567</strong></span>
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 group-hover:scale-105 transition-transform">
@@ -64,22 +89,22 @@
     </header>
 
     <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal-from-top">
             <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Clinical Modalities</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-2">Advanced Diagnostic Services</h1>
             <p class="mt-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                Aura Imaging deploys next-generation scanning hardware integrated with AI-assisted software algorithms, delivering unmatched anatomical resolution, faster exam times, and patient-centered safety standards[cite: 7].
+                Aura Imaging deploys next-generation scanning hardware integrated with AI-assisted software algorithms, delivering unmatched anatomical resolution, faster exam times, and patient-centered safety standards.
             </p>
         </div>
 
         <div class="space-y-16">
             <!-- Modality 1: 3T MRI -->
-            <div id="3T_Wide" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div id="3T_Wide" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm reveal-from-left">
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase"><span>●</span> High-Field Magnetic Resonance</div>
                     <h2 class="text-3xl font-extrabold">3T Wide-Bore MRI</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                        Our high-field 3T magnetic resonance imaging systems deliver superior spatial resolution for soft tissues, neurological structures, and musculoskeletal evaluations[cite: 7]. Built with an expanded wide-bore architecture to dramatically minimize claustrophobia and lower acoustic scanning noise[cite: 7].
+                        Our high-field 3T magnetic resonance imaging systems deliver superior spatial resolution for soft tissues, neurological structures, and musculoskeletal evaluations. Built with an expanded wide-bore architecture to dramatically minimize claustrophobia and lower acoustic scanning noise.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
@@ -95,23 +120,23 @@
                 </div>
                 <div class="lg:col-span-6">
                     <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80" alt="3T MRI Suite" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80" alt="3T MRI Suite" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
             </div>
 
             <!-- Modality 2: 128-Slice CT Scan -->
-            <div id="CT_Scan" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div id="CT_Scan" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm reveal-from-right">
                 <div class="lg:col-span-6 order-2 lg:order-1">
                     <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80" alt="128-Slice CT System" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1666214280352-db292c05fd80?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="128-Slice CT System" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
                 <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase"><span>●</span> Ultra-Fast Computed Tomography</div>
                     <h2 class="text-3xl font-extrabold">128-Slice CT Scan</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                        Lightning-fast computed tomography offering high-definition 3D rendering of internal organs, vasculature, and skeletal structures[cite: 7]. Integrated with advanced dose-modulation software to maintain strict patient radiation safety standards[cite: 7].
+                        Lightning-fast computed tomography offering high-definition 3D rendering of internal organs, vasculature, and skeletal structures. Integrated with advanced dose-modulation software to maintain strict patient radiation safety standards.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
@@ -128,12 +153,12 @@
             </div>
 
             <!-- Modality 3: High-Res Ultrasound -->
-            <div id="Ultrasound" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div id="Ultrasound" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm reveal-from-left">
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold uppercase"><span>●</span> Real-Time Sonography</div>
                     <h2 class="text-3xl font-extrabold">High-Resolution Ultrasound</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                        Non-invasive diagnostic sonography utilizing high-frequency sound waves to generate real-time moving images of soft tissues, blood vessels, and internal organs with zero ionizing radiation exposure[cite: 7].
+                        Non-invasive diagnostic sonography utilizing high-frequency sound waves to generate real-time moving images of soft tissues, blood vessels, and internal organs with zero ionizing radiation exposure.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
@@ -149,23 +174,23 @@
                 </div>
                 <div class="lg:col-span-6">
                     <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1000&q=80" alt="Ultrasound Diagnostics" class="w-full h-full object-cover">
+                        <img src="http://plus.unsplash.com/premium_photo-1661606358869-6adbae2d792c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ultrasound Diagnostics" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
             </div>
 
             <!-- Modality 4: Digital Radiography -->
-            <div id="XRay" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div id="XRay" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm reveal-from-right">
                 <div class="lg:col-span-6 order-2 lg:order-1">
                     <div class="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-96 border border-slate-200 dark:border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="Digital Radiography Suite" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="Digital Radiography Suite" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
                 <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase"><span>●</span> Digital Radiography</div>
                     <h2 class="text-3xl font-extrabold">Digital X-Ray Systems</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                        Instantaneous digital X-ray imaging designed to evaluate skeletal structures, bone fractures, and thoracic conditions with maximum image sharpness and minimal radiation exposure time[cite: 7].
+                        Instantaneous digital X-ray imaging designed to evaluate skeletal structures, bone fractures, and thoracic conditions with maximum image sharpness and minimal radiation exposure time.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
@@ -180,9 +205,64 @@
                     <div><a href="contact.html#booking" class="inline-flex items-center gap-2 bg-cyan-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-md hover:bg-cyan-700 transition-all"><span>Schedule X-Ray</span></a></div>
                 </div>
             </div>
+
+            <!-- Additional Expanded Service Section: Specialized Clinical Scans -->
+            <div class="pt-10 reveal-from-bottom">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Sub-Specialties</span>
+                    <h2 class="text-3xl font-extrabold mt-2">Specialized Diagnostic Programs</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Targeted imaging protocols designed for complex physician referrals and specialized clinical pathways.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold mb-4">01</div>
+                        <h3 class="font-bold text-xl mb-2">Neurological & Brain Mapping</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Advanced functional MRI (fMRI) and diffusion tensor imaging (DTI) mapping white matter tracts for neurosurgical pre-planning.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold mb-4">02</div>
+                        <h3 class="font-bold text-xl mb-2">Cardiovascular & Angiography</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Non-invasive cardiac CT angiography, coronary calcium scoring, and vascular flow studies with rapid cardiologist review.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold mb-4">03</div>
+                        <h3 class="font-bold text-xl mb-2">Musculoskeletal & Sports</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">High-resolution joint arthrography and targeted soft tissue evaluations tailored for professional athletes and orthopedic surgeons.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Process Breakdown Content Block -->
+            <div class="bg-slate-100 dark:bg-slate-900/60 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 reveal-from-bottom">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <span class="text-cyan-600 font-bold uppercase text-xs tracking-wider">Seamless Care Pathway</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold">What Happens After Your Scan?</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Our commitment doesn't end when you leave the scanning suite. Every study undergoes rigorous dual-tier quality checks before being routed to your referring physician.
+                        </p>
+                        <a href="prepare.html" class="inline-block text-xs font-bold text-blue-600 dark:text-cyan-400 hover:underline">Read full preparation guidelines →</a>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">1. Expert Radiologist Read</h4>
+                            <p class="text-xs text-slate-500">Board-certified subspecialists analyze and dictate findings within hours.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">2. Secure Physician Delivery</h4>
+                            <p class="text-xs text-slate-500">Encrypted DICOM images and reports transmitted directly to your doctor's EMR.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
-<!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
+
+    <!-- Professional Enterprise Footer with Social Media & Functional Redirection Links -->
     <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 text-sm text-slate-600 dark:text-slate-400">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         
@@ -259,6 +339,30 @@
       </div>
     </footer>
 
+    <!-- Bi-Directional Smooth Intersection Observer Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -50px 0px',
+          threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            } else {
+              entry.target.classList.remove('is-visible');
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-from-left, .reveal-from-right, .reveal-from-bottom, .reveal-from-top').forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
     <script src="./js/main.js"></script>
 </body>
 </html>

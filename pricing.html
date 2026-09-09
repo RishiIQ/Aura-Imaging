@@ -25,17 +25,42 @@
             }
         }
     </script>
+    <style>
+      /* Smooth bidirectional directional reveal animations */
+      .reveal-from-left,
+      .reveal-from-right,
+      .reveal-from-bottom,
+      .reveal-from-top {
+        opacity: 0;
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+
+      .reveal-from-left { transform: translateX(-60px); }
+      .reveal-from-right { transform: translateX(60px); }
+      .reveal-from-bottom { transform: translateY(60px); }
+      .reveal-from-top { transform: translateY(-60px); }
+
+      /* Trigger state when visible in viewport */
+      .reveal-from-left.is-visible,
+      .reveal-from-right.is-visible,
+      .reveal-from-bottom.is-visible,
+      .reveal-from-top.is-visible {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300 overflow-x-hidden">
 
     <!-- Top Announcement Banner -->
-    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2">
+    <div class="bg-slate-900 text-slate-100 text-xs py-2.5 px-6 font-medium text-center flex items-center justify-center gap-2 reveal-from-top">
         <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
         <span>Physician digital referrals & 24/7 priority booking active. Call <strong>(555) 123-4567</strong></span>
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 group-hover:scale-105 transition-transform">
@@ -92,23 +117,23 @@
 
     <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal-from-top">
             <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Billing Transparency</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-2">Insurance Networks & Transparent Pricing</h1>
             <p class="mt-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                At Aura Imaging, we believe healthcare pricing should be entirely transparent. We partner with all major health insurance networks and provide fixed, predictable self-pay options with zero unexpected hospital facility fees.
+                At Aura Imaging, we believe healthcare pricing should be entirely transparent. We partner with all major health insurance networks and provide fixed, predictable self-pay options with zero unexpected hospital facility fees[cite: 6].
             </p>
         </div>
 
         <!-- Two Column Insurance & Self-Pay Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
             <!-- Insurance Box -->
-            <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+            <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between reveal-from-left">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold mb-6 text-lg">INS</div>
                     <h3 class="text-2xl font-bold mb-4">Accepted Insurance Networks</h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                        We are an in-network provider for most regional and national insurance carriers. Our dedicated insurance verification team works directly with your provider to pre-authorize your scan before you arrive.
+                        We are an in-network provider for most regional and national insurance carriers. Our dedicated insurance verification team works directly with your provider to pre-authorize your scan before you arrive[cite: 6].
                     </p>
                     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium mb-8">
                         <li class="flex items-center gap-2">✔ Medicare & Medicaid</li>
@@ -121,17 +146,17 @@
                 </div>
                 <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
                     <h4 class="font-bold text-xs uppercase text-blue-600 dark:text-cyan-400 mb-1">Pre-Authorization Support</h4>
-                    <p class="text-xs text-slate-500">Need help verifying your co-pay or deductible? Call our billing advocates at (555) 123-4567.</p>
+                    <p class="text-xs text-slate-500">Need help verifying your co-pay or deductible? Call our billing advocates at (555) 123-4567[cite: 6].</p>
                 </div>
             </div>
 
             <!-- Self-Pay Box -->
-            <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+            <div class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between reveal-from-right">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold mb-6 text-lg">SELF</div>
                     <h3 class="text-2xl font-bold mb-4">Self-Pay & High Deductibles</h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                        For uninsured patients or those navigating high-deductible health plans, Aura Imaging offers bundled package rates that combine scanner usage, technologist care, and expert radiologist reporting into one flat fee.
+                        For uninsured patients or those navigating high-deductible health plans, Aura Imaging offers bundled package rates that combine scanner usage, technologist care, and expert radiologist reporting into one flat fee[cite: 6].
                     </p>
                     <div class="space-y-4 mb-8">
                         <div class="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-3">
@@ -152,30 +177,109 @@
                         </div>
                     </div>
                 </div>
-                <a href="contact.html#booking" class="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-6 py-4 rounded-full font-semibold text-sm text-center shadow-md hover:bg-slate-800 transition-all">
+                <button id="openCustomFinanceBtn" class="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-6 py-4 rounded-full font-semibold text-sm text-center shadow-md hover:bg-slate-800 transition-all cursor-pointer">
                     Request Custom Financial Estimate
-                </a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Custom Financial Estimate Interactive Form & Result Section -->
+        <section id="customFinanceSection" class="bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm mb-20 reveal-from-bottom hidden">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="text-cyan-600 font-bold uppercase text-xs tracking-wider">Interactive Estimator</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Custom Financial Estimate Calculator</h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Fill out the details below to instantly calculate an estimated self-pay range or financing plan.</p>
+                </div>
+
+                <form id="customFinanceForm" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-400 mb-2">Full Name</label>
+                            <input type="text" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-400 mb-2">Email Address</label>
+                            <input type="email" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-400 mb-2">Select Modality</label>
+                            <select id="calcModality" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="" disabled selected>Choose a scan type...</option>
+                                <option value="xray">Digital X-Ray ($200 avg)</option>
+                                <option value="ultrasound">High-Res Ultrasound ($450 avg)</option>
+                                <option value="ct">128-Slice CT Scan ($800 avg)</option>
+                                <option value="mri">3T Wide-Bore MRI ($1,050 avg)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-400 mb-2">Payment Preference</label>
+                            <select id="calcPaymentType" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="" disabled selected>Choose payment tier...</option>
+                                <option value="selfpay">Upfront Self-Pay (15% Discount)</option>
+                                <option value="installment">0% APR Installment Plan (6 Months)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end gap-4 pt-4">
+                        <button type="button" id="closeCustomFinanceBtn" class="px-6 py-3 rounded-full text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Cancel</button>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-sm font-semibold shadow-lg transition-all">Calculate Estimate</button>
+                    </div>
+                </form>
+
+                <!-- Result Box (Hidden by default) -->
+                <div id="estimateResultBox" class="hidden mt-8 p-6 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 text-center space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400">Your Estimated Cost Summary</h4>
+                    <div id="estimateOutputAmount" class="text-4xl font-extrabold text-slate-900 dark:text-white">$0.00</div>
+                    <p id="estimateOutputDetails" class="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto"></p>
+                    <div class="pt-2">
+                        <a href="contact.html#booking" class="inline-block bg-blue-600 text-white px-6 py-2.5 rounded-full text-xs font-bold shadow hover:bg-blue-700 transition-all">Lock in This Rate & Book</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extended Content: Financial Assistance & Payment Options -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20 reveal-from-bottom">
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold">01</div>
+                <h3 class="font-bold text-xl">Interest-Free Financing</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">We partner with top medical lenders to offer 0% APR plans spread across 3, 6, or 12 months for qualified self-pay patients.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold">02</div>
+                <h3 class="font-bold text-xl">Prompt Pay Discounts</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Receive an automatic 15% discount on self-pay imaging packages when paid in full on the day of service.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold">03</div>
+                <h3 class="font-bold text-xl">No Surprise Billing</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Unlike hospital-owned centers, we do not bill separate facility fees or hidden service charges. Your quote is fully inclusive.</p>
             </div>
         </div>
 
         <!-- Featured Facility Image Gallery Context -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 reveal-from-bottom">
             <div class="rounded-3xl overflow-hidden shadow-lg h-72 border border-slate-200 dark:border-slate-800 relative group">
                 <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Reception Desk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-                    <span class="text-white text-sm font-semibold">Comfortable, Modern Reception Lounges</span>
+                    <span class="text-white text-sm font-semibold">Comfortable, Modern Reception Lounges[cite: 6]</span>
                 </div>
             </div>
             <div class="rounded-3xl overflow-hidden shadow-lg h-72 border border-slate-200 dark:border-slate-800 relative group">
-                <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="Consultation Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <img src="https://images.unsplash.com/photo-1735825764485-93a381fd5779?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Consultation Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-                    <span class="text-white text-sm font-semibold">Private Billing & Insurance Counseling</span>
+                    <span class="text-white text-sm font-semibold">Private Billing & Insurance Counseling[cite: 6]</span>
                 </div>
             </div>
             <div class="rounded-3xl overflow-hidden shadow-lg h-72 border border-slate-200 dark:border-slate-800 relative group">
-                <img src="https://images.unsplash.com/photo-1512677800887-52a7b679f226?auto=format&fit=crop&w=800&q=80" alt="Diagnostic Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <img src="https://images.unsplash.com/photo-1581595220921-eec2071e5159?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Diagnostic Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-                    <span class="text-white text-sm font-semibold">State-of-the-Art Scanning Suites</span>
+                    <span class="text-white text-sm font-semibold">State-of-the-Art Scanning Suites[cite: 6]</span>
                 </div>
             </div>
         </div>
@@ -226,7 +330,7 @@
           </ul>
         </div>
 
-        <!-- Modality Links with precise target IDs -->
+        <!-- Modality Links -->
         <div>
           <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
           <ul class="space-y-2.5 text-xs">
@@ -258,6 +362,88 @@
       </div>
     </footer>
 
+    <!-- Custom Interactive Estimation Form Script & Intersection Observer Animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Bi-Directional Scroll Animation Observer
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -50px 0px',
+          threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            } else {
+              entry.target.classList.remove('is-visible');
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-from-left, .reveal-from-right, .reveal-from-bottom, .reveal-from-top').forEach(el => {
+          observer.observe(el);
+        });
+
+        // Interactive Custom Finance Form Toggle and Estimation Logic
+        const openBtn = document.getElementById('openCustomFinanceBtn');
+        const closeBtn = document.getElementById('closeCustomFinanceBtn');
+        const section = document.getElementById('customFinanceSection');
+        const form = document.getElementById('customFinanceForm');
+        const resultBox = document.getElementById('estimateResultBox');
+        const amountOutput = document.getElementById('estimateOutputAmount');
+        const detailsOutput = document.getElementById('estimateOutputDetails');
+
+        openBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          section.classList.remove('hidden');
+          section.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        closeBtn?.addEventListener('click', () => {
+          section.classList.add('hidden');
+          resultBox.classList.add('hidden');
+          form.reset();
+        });
+
+        form?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const modality = document.getElementById('calcModality').value;
+          const paymentType = document.getElementById('calcPaymentType').value;
+
+          let basePrice = 200;
+          let modalityName = "Digital X-Ray";
+
+          if (modality === 'ultrasound') {
+            basePrice = 450;
+            modalityName = "High-Res Ultrasound";
+          } else if (modality === 'ct') {
+            basePrice = 800;
+            modalityName = "128-Slice CT Scan";
+          } else if (modality === 'mri') {
+            basePrice = 1050;
+            modalityName = "3T Wide-Bore MRI";
+          }
+
+          let finalAmount = basePrice;
+          let detailText = `Includes complete ${modalityName} imaging, professional radiologist reading, and all digital file transfers.`;
+
+          if (paymentType === 'selfpay') {
+            finalAmount = basePrice * 0.85; // 15% discount
+            detailText += ` Includes an applied 15% upfront prompt-pay discount.`;
+          } else if (paymentType === 'installment') {
+            const monthly = (basePrice / 6).toFixed(2);
+            detailText += ` Structured as 6 monthly payments of approx. $${monthly}/mo at 0% APR financing.`;
+          }
+
+          amountOutput.textContent = `$${finalAmount.toFixed(2)}`;
+          detailsOutput.textContent = detailText;
+          resultBox.classList.remove('hidden');
+          resultBox.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    </script>
     <script src="./js/main.js"></script>
 </body>
 </html>
