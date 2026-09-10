@@ -1,0 +1,215 @@
+-- database setup & initial records
+create database if not exists bank;
+use bank;
+
+drop table if exists accounts;
+CREATE TABLE accounts (
+    account_id INT PRIMARY KEY,
+    account_holder VARCHAR(50),
+    balance DECIMAL(10, 2)
+);
+
+INSERT INTO accounts (account_id, account_holder, balance) VALUES
+(1, 'Aarav Sharma', 15000.00),
+(2, 'Diya Patel', 22500.50),
+(3, 'Rohan Verma', 8400.00),
+(4, 'Ananya Iyer', 45000.00),
+(5, 'Kabir Mehta', 1200.00);
+
+-- test commit and rollback
+SET autocommit = 0;
+
+UPDATE accounts SET balance = balance + 500 WHERE account_id = 1;
+COMMIT;
+SELECT * FROM accounts WHERE account_id = 1;
+
+UPDATE accounts SET balance = 0.00 WHERE account_id = 5;
+SELECT * FROM accounts WHERE account_id = 5;
+ROLLBACK;
+SELECT * FROM accounts WHERE account_id = 5;
+
+-- working with savepoints
+START TRANSACTION;
+
+UPDATE accounts SET balance = balance - 2000 WHERE account_id = 2;
+SAVEPOINT sp1; 
+
+UPDATE accounts SET balance = balance - 5000 WHERE account_id = 3; 
+SELECT * FROM accounts WHERE account_id IN (2, 3);
+
+ROLLBACK TO sp1;
+COMMIT;
+SELECT * FROM accounts WHERE account_id IN (2, 3);
+
+-- simple money transfer test (acc 1 to acc 2)
+START TRANSACTION;
+UPDATE accounts SET balance = balance - 1000 WHERE account_id = 1;
+UPDATE accounts SET balance = balance + 1000 WHERE account_id = 2;
+COMMIT;
+
+SELECT * FROM accounts WHERE account_id IN (1, 2);
+
+-- ACID quick notes:
+-- Atomicity: transactions run completely or not at all.
+-- Consistency: database constraints remain valid before and after.
+-- Isolation: concurrent transactions don't step on each other's toes.
+-- Durability: once committed, data changes are permanent.
+-- Money transfer example: either both the deduction and addition happen together, or rollback undoes it so no money gets lost in limbo.
+
+
+# Python File Handling & Exceptions Practice
+
+import os
+
+# write initial student records
+filename = "students.txt"
+
+print("Writing initial rows...")
+with open(filename, "w", encoding="utf-8") as f:
+    f.write("Rahul, 20, 85\n")
+    f.write("Priya, 19, 92\n")
+    f.write("Amit, 21, 78\n")
+    f.write("Sneha, 20, 88\n")
+    f.write("Vikram, 22, 74\n")
+
+# testing different read approaches
+print("\nReading file contents:")
+with open(filename, "r", encoding="utf-8") as f:
+    print("--- .read() ---")
+    print(f.read())
+
+with open(filename, "r", encoding="utf-8") as f:
+    print("--- .readline() ---")
+    print(f.readline(), end="")
+    print(f.readline(), end="")
+
+with open(filename, "r", encoding="utf-8") as f:
+    print("--- .readlines() ---")
+    print(f.readlines())
+
+# cursor movement test
+print("\nChecking file cursors:")
+with open(filename, "r", encoding="utf-8") as f:
+    print("Start position:", f.tell())
+    print("Read 15 bytes:", f.read(15))
+    print("Position after reading:", f.tell())
+    
+    f.seek(0)
+    print("After seek(0):", f.tell())
+    print("First line again:", f.readline().strip())
+
+
+# file modes test (w vs a vs x)
+print("\nTesting file modes:")
+with open(filename, "w", encoding="utf-8") as f:
+    f.write("Overwritten with 'w' mode.\n")
+
+# reset file data back to normal
+with open(filename, "w", encoding="utf-8") as f:
+    f.write("Rahul, 20, 85\nPriya, 19, 92\n")
+
+# append mode
+with open(filename, "a", encoding="utf-8") as f:
+    f.write("Neha, 21, 95\n")
+    f.write("Kiran, 20, 81\n")
+
+# exclusive creation mode ('x')
+exclusive_file = "exclusive_student_record.txt"
+try:
+    with open(exclusive_file, "x", encoding="utf-8") as f:
+        f.write("Exclusive mode test.\n")
+    print("Created file using 'x' mode.")
+except FileExistsError:
+    print("Caught error: File already exists (expected for 'x' mode).")
+
+if os.path.exists(exclusive_file):
+    os.remove(exclusive_file)
+
+f_obj = open(filename, "r", encoding="utf-8")
+print(f"Mode used: {f_obj.mode}, Is writable? {f_obj.writable()}")
+f_obj.close()
+
+
+# handling common runtime errors
+print("\nTriggering and catching basic errors:")
+
+try:
+    val = 10 / 0
+except ZeroDivisionError:
+    print("Caught division by zero.")
+
+try:
+    num = int("not_a_number")
+except ValueError:
+    print("Caught value error.")
+
+try:
+    res = "text" + 5
+except TypeError:
+    print("Caught type mismatch error.")
+
+
+# interactive division helper
+def interactive_division():
+    try:
+        n1 = float(input("Enter top number: "))
+        n2 = float(input("Enter bottom number: "))
+        print(f"Answer: {n1 / n2}")
+    except ZeroDivisionError:
+        print("Can't divide by zero!")
+    except ValueError:
+        print("Please input valid numbers.")
+
+# interactive_division() # uncomment to run
+
+
+# file handling with try/except/finally
+print("\nTesting try-finally block:")
+try:
+    f = open("missing_file.txt", "r")
+    data = f.read()
+except FileNotFoundError:
+    print("File wasn't found, handled nicely.")
+finally:
+    print("Cleanup step executed successfully.")
+
+
+# Mini Student File Manager Script
+def student_file_manager():
+    print("\n--- Student File Manager ---")
+    
+    try:
+        name = input("Student name: ").strip()
+        if not name:
+            raise ValueError("Name can't be blank.")
+        age = int(input("Student age: "))
+        mark = float(input("Student mark: "))
+    except ValueError as err:
+        print(f"Bad input: {err}")
+        return
+
+    db_file = "students.txt"
+
+    try:
+        with open(db_file, "a", encoding="utf-8") as f:
+            f.write(f"{name}, {age}, {mark}\n")
+        print("Saved record successfully.")
+    except IOError as err:
+        print(f"Disk write error: {err}")
+
+    print("\nListing all records:")
+    try:
+        if not os.path.exists(db_file):
+            print("No database file found.")
+            return
+
+        with open(db_file, "r", encoding="utf-8") as f:
+            for i, line in enumerate(f.readlines(), 1):
+                print(f"{i}: {line.strip()}")
+    except Exception as err:
+        print(f"Read error: {err}")
+    finally:
+        print("Session closed cleanly.")
+
+if __name__ == "__main__":
+    student_file_manager()
