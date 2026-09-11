@@ -17,12 +17,12 @@
         theme: {
           extend: {
             colors: {
-              m3: {
-                surface: "#F8FAFC",
-                surfaceContainer: "#F1F5F9",
-                primary: "#0F172A",
-                cyanAccent: '#06B6D4',
-                medicalBlue: '#2563EB',
+              glossyBlueScheme: {
+                pureWhite: "#FFFFFF",
+                deepBlack: "#030712",
+                royalBlue: "#2563EB",
+                electricBlue: "#3B82F6",
+                skyHighlight: "#60A5FA",
               },
             },
           },
@@ -35,12 +35,12 @@
         position: fixed;
         inset: 0;
         z-index: 99999;
-        background: #020617;
+        background: #030712;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #06b6d4;
+        color: #60A5FA;
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         overflow: hidden;
       }
@@ -48,8 +48,8 @@
       .medical-grid {
         position: absolute;
         inset: 0;
-        background-image: linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+        background-image: linear-gradient(to right, rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
         background-size: 40px 40px;
         pointer-events: none;
       }
@@ -58,7 +58,7 @@
         position: absolute;
         width: 320px;
         height: 320px;
-        border: 2px dashed rgba(6, 182, 212, 0.3);
+        border: 2px dashed rgba(59, 130, 246, 0.5);
         border-radius: 50%;
         animation: spinRing 12s linear infinite;
       }
@@ -74,9 +74,20 @@
         left: 0;
         width: 100%;
         height: 4px;
-        background: linear-gradient(90deg, transparent, #22d3ee, #38bdf8, #22d3ee, transparent);
-        box-shadow: 0 0 25px #22d3ee, 0 0 50px #2563eb;
+        background: #3B82F6;
+        box-shadow: 0 0 25px #3B82F6, 0 0 50px #2563EB;
         pointer-events: none;
+      }
+
+      /* Glossy Reflection Card Effects */
+      .glossy-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 0.9));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 20px 30px -10px rgba(37, 99, 235, 0.12);
+      }
+
+      .dark .glossy-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.9));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 20px 30px -10px rgba(0, 0, 0, 0.9);
       }
 
       /* Multi-directional smooth transition setup */
@@ -120,11 +131,10 @@
         top: 100%;
         left: 0;
         min-width: 190px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(226, 232, 240, 0.8);
+        background: #FFFFFF;
+        border: 2px solid #2563EB;
         border-radius: 1rem;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
         opacity: 0;
         visibility: hidden;
         transform: translateY(8px);
@@ -134,9 +144,9 @@
       }
 
       .dark .nav-dropdown-content {
-        background: rgba(15, 23, 42, 0.95);
-        border: 1px solid rgba(51, 65, 85, 0.8);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        background: #030712;
+        border: 2px solid #3B82F6;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.9);
       }
 
       .nav-dropdown:hover .nav-dropdown-content,
@@ -160,7 +170,7 @@
       }
     </style>
   </head>
-  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300 overflow-x-hidden">
+  <body class="bg-white dark:bg-black text-slate-900 dark:text-white antialiased transition-colors duration-300 overflow-x-hidden">
 
     <!-- Scan Boot Overlay -->
     <div id="scanOverlay">
@@ -169,74 +179,72 @@
       <div class="ct-laser-sweep" id="scanLaser"></div>
       
       <div class="text-center space-y-4 z-10 px-4">
-        <div class="inline-block px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-[10px] tracking-widest uppercase mb-2 animate-pulse">
+        <div class="inline-block px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] tracking-widest uppercase mb-2 animate-pulse font-extrabold shadow-[0_0_15px_#2563EB]">
           Diagnostic System Check
         </div>
-        <div class="text-xs sm:text-base uppercase tracking-[0.3em] text-cyan-300 font-bold" id="showcaseText">
+        <div class="text-xs sm:text-base uppercase tracking-[0.3em] text-blue-400 font-black" id="showcaseText">
           INITIALIZING AURA DIAGNOSTIC MATRIX...
         </div>
-        <div class="w-80 h-1.5 bg-slate-900 border border-slate-800 rounded-full overflow-hidden mx-auto p-0.5">
-          <div id="scanBar" class="w-0 h-full bg-gradient-to-r from-cyan-400 via-blue-600 to-indigo-500 rounded-full shadow-[0_0_20px_#22d3ee]"></div>
+        <div class="w-80 h-2 bg-neutral-900 border-2 border-blue-500 rounded-full overflow-hidden mx-auto p-0.5 shadow-[0_0_10px_#3B82F6]">
+          <div id="scanBar" class="w-0 h-full bg-blue-500 rounded-full shadow-[0_0_20px_#3B82F6]"></div>
         </div>
-        <div class="text-[10px] text-slate-500 tracking-widest font-mono">SECURE MEDICAL GRID v4.2</div>
+        <div class="text-[10px] text-neutral-400 tracking-widest font-mono font-bold">SECURE MEDICAL GRID v4.2</div>
       </div>
     </div>
 
-    
-
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b-2 border-blue-600/30 dark:border-blue-500/30 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
         
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-3 group shrink-0">
-          <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
-            <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain" />
+          <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+            <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
           </div>
           <div class="flex flex-col leading-none">
-            <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Aura</span>
-            <span class="text-xs font-semibold text-blue-600 dark:text-cyan-400 tracking-widest uppercase mt-0.5">Imaging</span>
+            <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
+            <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Pill (Hidden on tablet/mobile < 1024px) -->
-        <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm">
           <!-- Home Dropdown Button -->
           <div class="nav-dropdown">
-            <button class="px-4 py-2 rounded-full bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm font-semibold transition-all flex items-center gap-1.5">
+            <button class="px-4 py-2 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)] font-bold transition-all flex items-center gap-1.5">
               <span class="material-symbols-outlined text-[18px]">home</span>
               Home
               <span class="material-symbols-outlined text-[16px]">expand_more</span>
             </button>
             <div class="nav-dropdown-content">
-              <a href="index.html" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 font-semibold text-xs transition-colors mb-1">
-                <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-cyan-400">home</span>
+              <a href="index.html" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-900 dark:text-white bg-blue-50 dark:bg-neutral-900 font-bold text-xs transition-colors mb-1">
+                <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span>
                 Home 1
               </a>
-              <a href="home2.html" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium text-xs transition-colors">
-                <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-cyan-400">home_work</span>
+              <a href="home2.html" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-800 font-semibold text-xs transition-colors">
+                <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home_work</span>
                 Home 2
               </a>
             </div>
           </div>
-          <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services</a>
-          <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Scan</a>
-          <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a>
-          <a href="contact.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+          <a href="services.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>
+          <a href="prepare.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>
+          <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>
+          <a href="contact.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
         </nav>
 
         <!-- Right Utility Actions & Mobile Hamburger Toggle -->
         <div class="flex items-center gap-2">
-          <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700 flex items-center justify-center" title="Toggle Text Direction"></button>
+          <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Text Direction"></button>
 
-          <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700 flex items-center justify-center" title="Toggle Dark/Light Mode"></button>
+          <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Dark/Light Mode"></button>
 
-          <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg hover:shadow-blue-500/25 transition-all">
+          <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-full font-extrabold text-sm shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">
             Book Appointment
           </a>
 
           <!-- Mobile Hamburger Button (< 1024px) -->
-          <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700 flex items-center justify-center focus:outline-none" aria-label="Toggle Mobile Menu">
+          <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center focus:outline-none shadow-sm" aria-label="Toggle Mobile Menu">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -245,52 +253,52 @@
       </div>
 
       <!-- Mobile Dropdown Navigation Drawer -->
-      <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-3 shadow-2xl absolute w-full left-0 top-[80px]">
+      <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-b-2 border-blue-600 dark:border-blue-400 px-6 py-6 space-y-3 shadow-2xl absolute w-full left-0 top-[80px]">
         <!-- Mobile Home Accordion / Links -->
-        <div class="space-y-1.5 pb-2 border-b border-slate-100 dark:border-slate-800">
-          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-4">Home Options</span>
-          <a href="index.html" class="flex items-center gap-2.5 px-4 py-3 rounded-xl font-semibold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800">
-            <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-cyan-400">home</span>
+        <div class="space-y-1.5 pb-2 border-b-2 border-slate-100 dark:border-neutral-800">
+          <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-4">Home Options</span>
+          <a href="index.html" class="flex items-center gap-2.5 px-4 py-3 rounded-xl font-bold text-white bg-blue-600 shadow">
+            <span class="material-symbols-outlined text-[18px]">home</span>
             Home 1
           </a>
-          <a href="home2.html" class="flex items-center gap-2.5 px-4 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-            <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-cyan-400">home_work</span>
+          <a href="home2.html" class="flex items-center gap-2.5 px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">
+            <span class="material-symbols-outlined text-[18px] text-blue-600">home_work</span>
             Home 2
           </a>
         </div>
-        <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Services</a>
-        <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Prepare for Scan</a>
-        <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Pricing & Insurance</a>
-        <a href="contact.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Contact</a>
-        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-          <a href="contact.html#booking" class="block w-full text-center bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 py-3.5 rounded-xl font-bold shadow-md">Book Appointment</a>
+        <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Services</a>
+        <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Prepare for Scan</a>
+        <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Pricing & Insurance</a>
+        <a href="contact.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Contact</a>
+        <div class="pt-4 border-t-2 border-slate-100 dark:border-neutral-800">
+          <a href="contact.html#booking" class="block w-full text-center bg-blue-600 text-white py-3.5 rounded-xl font-bold shadow-md">Book Appointment</a>
         </div>
       </div>
     </header>
 
     <main>
       <!-- Hero Section -->
-      <section class="relative pt-16 pb-24 overflow-hidden">
+      <section class="relative pt-16 pb-24 overflow-hidden bg-white dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <!-- Left Side Content -->
             <div class="lg:col-span-6 reveal-from-left">
-              <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-300 text-xs font-bold uppercase mb-6 tracking-wider animate-pulse">
+              <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-xs font-black uppercase mb-6 tracking-wider animate-pulse shadow-sm border border-blue-300 dark:border-blue-800">
                 Next-Generation Medical Diagnostics
               </span>
-              <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+              <h1 class="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
                 Precision you can trust.<br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Technology that feels human.</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-400 dark:from-blue-400 dark:to-sky-300">Technology that feels human.</span>
               </h1>
-              <p class="mt-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p class="mt-6 text-lg text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
                 Aura Imaging blends elite hospital-grade 3T MRI, 128-slice CT, and high-resolution ultrasound with a calm, spa-like outpatient experience designed for absolute comfort.
               </p>
               <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                <a href="contact.html#booking" class="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-8 py-4 rounded-full font-semibold text-center shadow-lg hover:scale-105 hover:bg-blue-600 dark:hover:bg-cyan-400 dark:hover:text-slate-950 transition-all duration-300">
+                <a href="contact.html#booking" class="bg-blue-600 dark:bg-blue-500 text-white px-8 py-4 rounded-full font-black text-center shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:scale-105 transition-all duration-300">
                   Schedule Appointment
                 </a>
-                <a href="services.html" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full font-semibold text-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <a href="services.html" class="bg-slate-100 dark:bg-neutral-900 text-slate-900 dark:text-white border-2 border-blue-300 dark:border-neutral-800 px-8 py-4 rounded-full font-black text-center hover:bg-slate-200 transition-colors shadow-sm">
                   Explore Modalities
                 </a>
               </div>
@@ -299,20 +307,20 @@
             <!-- Right Side Visuals -->
             <div class="lg:col-span-6 grid grid-cols-2 gap-4 reveal-from-right">
               <div class="space-y-4 animate-float">
-                <div class="bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl h-64 group">
+                <div class="glossy-card rounded-3xl overflow-hidden h-64 group border-2 border-blue-300/40 dark:border-neutral-800">
                   <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="MRI Machine" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
                 </div>
-                <div class="bg-blue-600 text-white p-6 rounded-3xl shadow-xl hover:translate-y-[-4px] transition-transform duration-300">
+                <div class="bg-blue-600 text-white p-6 rounded-3xl shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:translate-y-[-4px] transition-transform duration-300 border-2 border-blue-400">
                   <span class="text-2xl font-black">15,000+</span>
-                  <p class="text-xs text-blue-100 mt-1">Successful diagnostic evaluations completed annually.</p>
+                  <p class="text-xs text-blue-100 font-bold mt-1">Successful diagnostic evaluations completed annually.</p>
                 </div>
               </div>
               <div class="space-y-4 pt-8 animate-float" style="animation-delay: 2.5s;">
-                <div class="bg-cyan-600 text-white p-6 rounded-3xl shadow-xl hover:translate-y-[-4px] transition-transform duration-300">
-                  <span class="text-2xl font-black">99.8%</span>
-                  <p class="text-xs text-cyan-100 mt-1">Diagnostic accuracy verified by board-certified radiologists.</p>
+                <div class="bg-neutral-900 text-white p-6 rounded-3xl shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:translate-y-[-4px] transition-transform duration-300 border-2 border-blue-500">
+                  <span class="text-2xl font-black text-blue-400">99.8%</span>
+                  <p class="text-xs text-neutral-300 font-bold mt-1">Diagnostic accuracy verified by board-certified radiologists.</p>
                 </div>
-                <div class="bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl h-64 group">
+                <div class="glossy-card rounded-3xl overflow-hidden h-64 group border-2 border-blue-300/40 dark:border-neutral-800">
                   <img src="https://images.unsplash.com/photo-1666214280352-db292c05fd80?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Laboratory Analysis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
                 </div>
               </div>
@@ -323,82 +331,82 @@
       </section>
 
       <!-- Stats Counter Ribbon -->
-      <section class="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-12 reveal-from-bottom">
+      <section class="border-y-2 border-blue-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-950 py-12 reveal-from-bottom shadow-sm">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div class="hover:scale-110 transition-transform duration-300 cursor-default">
-            <h3 class="text-3xl font-extrabold text-blue-600">3T</h3>
-            <p class="text-xs text-slate-500 mt-1 uppercase font-semibold">High-Field Magnet Strength</p>
+            <h3 class="text-3xl font-black text-blue-600 dark:text-blue-400">3T</h3>
+            <p class="text-xs text-slate-600 dark:text-neutral-400 mt-1 uppercase font-black tracking-wider">High-Field Magnet Strength</p>
           </div>
           <div class="hover:scale-110 transition-transform duration-300 cursor-default">
-            <h3 class="text-3xl font-extrabold text-blue-600">128</h3>
-            <p class="text-xs text-slate-500 mt-1 uppercase font-semibold">Slice CT Resolution</p>
+            <h3 class="text-3xl font-black text-indigo-600 dark:text-indigo-400">128</h3>
+            <p class="text-xs text-slate-600 dark:text-neutral-400 mt-1 uppercase font-black tracking-wider">Slice CT Resolution</p>
           </div>
           <div class="hover:scale-110 transition-transform duration-300 cursor-default">
-            <h3 class="text-3xl font-extrabold text-blue-600">&lt;24h</h3>
-            <p class="text-xs text-slate-500 mt-1 uppercase font-semibold">Physician Report Turnaround</p>
+            <h3 class="text-3xl font-black text-blue-600 dark:text-blue-400">&lt;24h</h3>
+            <p class="text-xs text-slate-600 dark:text-neutral-400 mt-1 uppercase font-black tracking-wider">Physician Report Turnaround</p>
           </div>
           <div class="hover:scale-110 transition-transform duration-300 cursor-default">
-            <h3 class="text-3xl font-extrabold text-blue-600">100%</h3>
-            <p class="text-xs text-slate-500 mt-1 uppercase font-semibold">ACR Accredited Facility</p>
+            <h3 class="text-3xl font-black text-indigo-600 dark:text-indigo-400">100%</h3>
+            <p class="text-xs text-slate-600 dark:text-neutral-400 mt-1 uppercase font-black tracking-wider">ACR Accredited Facility</p>
           </div>
         </div>
       </section>
 
       <!-- Featured Modalities Overview -->
-      <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-from-top">
-          <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Comprehensive Care</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Core Diagnostic Modalities</h2>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mt-3">
+          <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Comprehensive Care</span>
+          <h2 class="text-3xl sm:text-4xl font-black mt-2 text-slate-900 dark:text-white">Core Diagnostic Modalities</h2>
+          <p class="text-slate-600 dark:text-neutral-400 text-sm mt-3 font-semibold">
             Equipped with state-of-the-art machinery to support your physician with pinpoint diagnostic evaluations.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Modality Card 1 -->
-          <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-left">
+          <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl flex flex-col justify-between hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-left">
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold mb-6">MRI</div>
-              <h3 class="font-bold text-xl mb-3">3T Wide-Bore MRI</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Ultra-quiet wide architecture designed to reduce anxiety while capturing high-field neurological and joint imagery.</p>
+              <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold mb-6 shadow-md">MRI</div>
+              <h3 class="font-black text-xl mb-3 text-slate-900 dark:text-white">3T Wide-Bore MRI</h3>
+              <p class="text-sm text-slate-600 dark:text-neutral-400 mb-6 font-semibold">Ultra-quiet wide architecture designed to reduce anxiety while capturing high-field neurological and joint imagery.</p>
             </div>
-            <a href="services.html#3T_Wide" class="text-sm font-semibold text-blue-600 hover:underline inline-flex items-center gap-1 group">
+            <a href="services.html#3T_Wide" class="text-sm font-black text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 group">
               <span>Learn more</span> <span class="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
 
           <!-- Modality Card 2 -->
-          <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-bottom">
+          <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl flex flex-col justify-between hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-bottom">
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold mb-6">CT</div>
-              <h3 class="font-bold text-xl mb-3">128-Slice CT Scan</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Ultra-fast computed tomography utilizing advanced dose-reduction protocols for safe, precise evaluations.</p>
+              <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold mb-6 shadow-md">CT</div>
+              <h3 class="font-black text-xl mb-3 text-slate-900 dark:text-white">128-Slice CT Scan</h3>
+              <p class="text-sm text-slate-600 dark:text-neutral-400 mb-6 font-semibold">Ultra-fast computed tomography utilizing advanced dose-reduction protocols for safe, precise evaluations.</p>
             </div>
-            <a href="services.html#CT_Scan" class="text-sm font-semibold text-cyan-600 hover:underline inline-flex items-center gap-1 group">
+            <a href="services.html#CT_Scan" class="text-sm font-black text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1 group">
               <span>Learn more</span> <span class="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
 
           <!-- Modality Card 3 -->
-          <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-bottom" style="transition-delay: 150ms;">
+          <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl flex flex-col justify-between hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-bottom" style="transition-delay: 150ms;">
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold mb-6">US</div>
-              <h3 class="font-bold text-xl mb-3">High-Res Ultrasound</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Non-invasive real-time sonography providing clear structural imagery with zero radiation exposure.</p>
+              <div class="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-bold mb-6 shadow-md">US</div>
+              <h3 class="font-black text-xl mb-3 text-slate-900 dark:text-white">High-Res Ultrasound</h3>
+              <p class="text-sm text-slate-600 dark:text-neutral-400 mb-6 font-semibold">Non-invasive real-time sonography providing clear structural imagery with zero radiation exposure.</p>
             </div>
-            <a href="services.html#Ultrasound" class="text-sm font-semibold text-blue-600 hover:underline inline-flex items-center gap-1 group">
+            <a href="services.html#Ultrasound" class="text-sm font-black text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 group">
               <span>Learn more</span> <span class="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
 
           <!-- Modality Card 4 -->
-          <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-right">
+          <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl flex flex-col justify-between hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-right">
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold mb-6">XR</div>
-              <h3 class="font-bold text-xl mb-3">Digital Radiography</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Instant digital skeletal and thoracic imaging delivering immediate results to your care team.</p>
+              <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold mb-6 shadow-md">XR</div>
+              <h3 class="font-black text-xl mb-3 text-slate-900 dark:text-white">Digital Radiography</h3>
+              <p class="text-sm text-slate-600 dark:text-neutral-400 mb-6 font-semibold">Instant digital skeletal and thoracic imaging delivering immediate results to your care team.</p>
             </div>
-            <a href="services.html#XRay" class="text-sm font-semibold text-cyan-600 hover:underline inline-flex items-center gap-1 group">
+            <a href="services.html#XRay" class="text-sm font-black text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1 group">
               <span>Learn more</span> <span class="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
@@ -406,46 +414,46 @@
       </section>
 
       <!-- Why Choose Aura Imaging Section -->
-      <section class="py-20 bg-slate-100 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 overflow-hidden">
+      <section class="py-20 bg-slate-50 dark:bg-neutral-950 border-t-2 border-blue-200 dark:border-neutral-800 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div class="lg:col-span-6 reveal-from-left space-y-6">
-              <span class="text-cyan-600 dark:text-cyan-400 font-bold uppercase text-xs tracking-wider">Patient-Centric Promise</span>
-              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Why Patients & Doctors Choose Aura</h2>
-              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Patient-Centric Promise</span>
+              <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Why Patients & Doctors Choose Aura</h2>
+              <p class="text-slate-600 dark:text-neutral-300 text-sm leading-relaxed font-semibold">
                 We combine top-tier diagnostic hardware with an outpatient environment focused on reducing anxiety. Our streamlined report distribution system ensures your physician gets accurate findings within 24 hours.
               </p>
               
               <div class="space-y-4 pt-2">
-                <div class="flex items-start gap-3 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                  <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold shrink-0">✓</div>
+                <div class="glossy-card p-4 rounded-2xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-md flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shrink-0 shadow">✓</div>
                   <div>
                     <h4 class="font-bold text-sm text-slate-900 dark:text-white">Low-Dose Radiation Tech</h4>
-                    <p class="text-xs text-slate-500 mt-0.5">Advanced AI scan optimization minimizes X-ray exposure while keeping crisp visual detail.</p>
+                    <p class="text-xs text-slate-600 dark:text-neutral-400 mt-0.5 font-semibold">Advanced AI scan optimization minimizes X-ray exposure while keeping crisp visual detail.</p>
                   </div>
                 </div>
                 
-                <div class="flex items-start gap-3 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                  <div class="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center font-bold shrink-0">✓</div>
+                <div class="glossy-card p-4 rounded-2xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-md flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow">✓</div>
                   <div>
                     <h4 class="font-bold text-sm text-slate-900 dark:text-white">Same-Day Urgent Bookings</h4>
-                    <p class="text-xs text-slate-500 mt-0.5">Direct scheduling blocks open daily for emergency physician referrals.</p>
+                    <p class="text-xs text-slate-600 dark:text-neutral-400 mt-0.5 font-semibold">Direct scheduling blocks open daily for emergency physician referrals.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="lg:col-span-6 reveal-from-right">
-              <div class="bg-blue-600 dark:bg-slate-800 p-8 sm:p-10 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+              <div class="bg-neutral-950 p-8 sm:p-10 rounded-3xl text-white shadow-[0_0_40px_rgba(37,99,235,0.25)] relative overflow-hidden border-2 border-blue-600">
                 <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-500/20 rounded-full blur-2xl"></div>
-                <h3 class="text-2xl font-bold mb-4">Ready to Schedule Your Scan?</h3>
-                <p class="text-sm text-blue-100 dark:text-slate-300 mb-6 leading-relaxed">
+                <h3 class="text-2xl font-black mb-4 text-white">Ready to Schedule Your Scan?</h3>
+                <p class="text-sm text-neutral-300 mb-6 leading-relaxed font-semibold">
                   Bring your doctor's script or let our concierge team help coordinate your insurance verification and paperwork prior to arrival.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3">
-                  <a href="contact.html#booking" class="bg-white text-blue-900 px-6 py-3 rounded-full text-sm font-bold text-center hover:bg-slate-100 transition-colors">Book Online Now</a>
-                  <a href="pricing.html" class="bg-blue-700 dark:bg-slate-700 text-white px-6 py-3 rounded-full text-sm font-bold text-center hover:bg-blue-800 transition-colors">View Insurance Info</a>
+                  <a href="contact.html#booking" class="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-black text-center shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:bg-white hover:text-black transition-colors">Book Online Now</a>
+                  <a href="pricing.html" class="bg-neutral-900 text-white border-2 border-blue-500 px-6 py-3 rounded-full text-sm font-black text-center hover:bg-neutral-800 transition-colors shadow-lg">View Insurance Info</a>
                 </div>
               </div>
             </div>
@@ -455,49 +463,49 @@
       </section>
 
       <!-- Chief Medical Leadership Grid -->
-      <section class="py-20 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 overflow-hidden">
+      <section class="py-20 bg-white dark:bg-black border-t-2 border-blue-200 dark:border-neutral-800 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-2xl mx-auto mb-16 reveal-from-top">
-            <span class="text-blue-600 font-bold uppercase text-xs tracking-wider">Expertise</span>
-            <h2 class="text-3xl font-extrabold mt-1">Our Medical Leadership</h2>
-            <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+            <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Expertise</span>
+            <h2 class="text-3xl sm:text-4xl font-black mt-1 text-slate-900 dark:text-white">Our Medical Leadership</h2>
+            <p class="text-slate-600 dark:text-neutral-400 text-sm mt-2 font-semibold">
               Led by board-certified radiologists with decades of specialized diagnostic experience.
             </p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Leader 1 -->
-            <div class="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-left">
-              <div class="overflow-hidden h-64">
+            <div class="glossy-card rounded-3xl overflow-hidden border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-left">
+              <div class="overflow-hidden h-64 border-b-2 border-blue-300/40 dark:border-neutral-800">
                 <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" alt="Dr. Evelyn Vance" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </div>
               <div class="p-6">
-                <h4 class="font-bold text-lg">Dr. Evelyn Vance, MD</h4>
-                <p class="text-xs text-blue-600 font-semibold mb-2">Chief Medical Officer & Neuroradiologist</p>
-                <p class="text-xs text-slate-500">Specializing in advanced 3T neuro-imaging and diagnostic magnetic resonance applications.</p>
+                <h4 class="font-black text-lg text-slate-900 dark:text-white">Dr. Evelyn Vance, MD</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-black mb-2">Chief Medical Officer & Neuroradiologist</p>
+                <p class="text-xs text-slate-600 dark:text-neutral-400 font-semibold">Specializing in advanced 3T neuro-imaging and diagnostic magnetic resonance applications.</p>
               </div>
             </div>
 
             <!-- Leader 2 -->
-            <div class="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-bottom">
-              <div class="overflow-hidden h-64">
+            <div class="glossy-card rounded-3xl overflow-hidden border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-bottom">
+              <div class="overflow-hidden h-64 border-b-2 border-blue-300/40 dark:border-neutral-800">
                 <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Marcus Chen" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </div>
               <div class="p-6">
-                <h4 class="font-bold text-lg">Dr. Marcus Chen, MD</h4>
-                <p class="text-xs text-blue-600 font-semibold mb-2">Head of Computed Tomography</p>
-                <p class="text-xs text-slate-500">Pioneering ultra-low dose 128-slice CT protocols and cardiovascular imaging safety.</p>
+                <h4 class="font-black text-lg text-slate-900 dark:text-white">Dr. Marcus Chen, MD</h4>
+                <p class="text-xs text-indigo-600 dark:text-indigo-400 font-black mb-2">Head of Computed Tomography</p>
+                <p class="text-xs text-slate-600 dark:text-neutral-400 font-semibold">Pioneering ultra-low dose 128-slice CT protocols and cardiovascular imaging safety.</p>
               </div>
             </div>
 
             <!-- Leader 3 -->
-            <div class="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal-from-right">
-              <div class="overflow-hidden h-64">
+            <div class="glossy-card rounded-3xl overflow-hidden border-2 border-blue-300/50 dark:border-neutral-800 shadow-xl hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:-translate-y-2 transition-all duration-300 reveal-from-right">
+              <div class="overflow-hidden h-64 border-b-2 border-blue-300/40 dark:border-neutral-800">
                 <img src="https://images.unsplash.com/photo-1673865641073-4479f93a7776?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Sarah Jenkins" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </div>
               <div class="p-6">
-                <h4 class="font-bold text-lg">Dr. Sarah Jenkins, MD</h4>
-                <p class="text-xs text-blue-600 font-semibold mb-2">Director of Patient Care & Ultrasound</p>
-                <p class="text-xs text-slate-500">Expert in obstetric sonography, vascular diagnostics, and anxiety-reduction patient workflows.</p>
+                <h4 class="font-black text-lg text-slate-900 dark:text-white">Dr. Sarah Jenkins, MD</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-black mb-2">Director of Patient Care & Ultrasound</p>
+                <p class="text-xs text-slate-600 dark:text-neutral-400 font-semibold">Expert in obstetric sonography, vascular diagnostics, and anxiety-reduction patient workflows.</p>
               </div>
             </div>
           </div>
@@ -506,68 +514,68 @@
     </main>
 
     <!-- Professional Enterprise Footer -->
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 text-sm text-slate-600 dark:text-slate-400">
+    <footer class="bg-black text-white border-t-2 border-blue-600 py-16 text-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         <div class="space-y-4">
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1.5">
-              <img src="./mri.png" alt="Logo" class="w-full h-full object-contain" />
+            <div class="w-8 h-8 rounded-xl bg-neutral-900 border-2 border-blue-500 flex items-center justify-center p-1.5 shadow-[0_0_10px_rgba(37,99,235,0.4)]">
+              <img src="./mri.png" alt="Logo" class="w-full h-full object-contain filter invert" />
             </div>
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white">Aura <span class="text-blue-600 dark:text-cyan-400">Imaging</span></span>
+            <span class="text-xl font-black text-white">Aura <span class="text-blue-400">Imaging</span></span>
           </div>
-          <p class="text-xs leading-relaxed text-slate-500">
+          <p class="text-xs leading-relaxed text-neutral-400 font-semibold">
             State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
           </p>
 
           <!-- Social Media Icons -->
           <div class="flex items-center gap-3 pt-2">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="LinkedIn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Twitter / X">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Twitter / X">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Facebook">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-colors flex items-center justify-center" title="YouTube">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="YouTube">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
         <div>
-          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
-          <ul class="space-y-2.5 text-xs">
-            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home 1</a></li>
-            <li><a href="home2.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home 2</a></li>
-            <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Services & Modalities</a></li>
-            <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Prepare for Your Scan</a></li>
-            <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Pricing & Insurance</a></li>
-            <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Contact & Booking</a></li>
+          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
+            <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home 1</a></li>
+            <li><a href="home2.html" class="hover:text-blue-400 transition-colors">Home 2</a></li>
+            <li><a href="services.html" class="hover:text-blue-400 transition-colors">Services & Modalities</a></li>
+            <li><a href="prepare.html" class="hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>
+            <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact & Booking</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
-          <ul class="space-y-2.5 text-xs">
-            <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">3T Wide-Bore MRI</a></li>
-            <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">128-Slice CT Scan</a></li>
-            <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">High-Res Ultrasound</a></li>
-            <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Digital X-Ray</a></li>
+          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
+          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
+            <li><a href="services.html#3T_Wide" class="hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>
+            <li><a href="services.html#CT_Scan" class="hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>
+            <li><a href="services.html#Ultrasound" class="hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>
+            <li><a href="services.html#XRay" class="hover:text-blue-400 transition-colors">Digital X-Ray</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
-          <p class="text-xs text-slate-500 mb-2">1250 Medical Plaza Way, Suite 100</p>
-          <p class="text-xs text-slate-500 mb-2">Phone: (555) 123-4567</p>
-          <p class="text-xs text-slate-500">Email: scheduling@auraimaging.com</p>
+          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
+          <p class="text-xs text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>
+          <p class="text-xs text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>
+          <p class="text-xs text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 font-semibold">
         <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
         <div class="flex gap-6 mt-4 md:mt-0">
-          <a href="privacy.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Privacy Policy</a>
-          <a href="hipaa.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">HIPAA Compliance</a>
-          <a href="terms.html" class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Terms of Use</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="hipaa.html" class="hover:text-white transition-colors">HIPAA Compliance</a>
+          <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
         </div>
       </div>
     </footer>
@@ -601,14 +609,22 @@
           }
         }
 
-        // RTL/LTR Toggle with custom custom alignment lines icon
+        // RTL/LTR Toggle with 3-line professional alignment SVG icon
         const rtlToggleBtn = document.getElementById('rtlToggle');
         if (rtlToggleBtn) {
-          rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${htmlElement.getAttribute('dir') === 'rtl' ? 'format_align_right' : 'format_align_left'}</span>`;
+          const isRtl = htmlElement.getAttribute('dir') === 'rtl';
+          rtlToggleBtn.innerHTML = isRtl
+            ? `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12H3M21 6H6M21 18H9"></path></svg>`
+            : `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h15M3 18h12"></path></svg>`;
+
           rtlToggleBtn.addEventListener('click', () => {
-            const isRtl = htmlElement.getAttribute('dir') === 'rtl';
-            htmlElement.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-            rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${!isRtl ? 'format_align_right' : 'format_align_left'}</span>`;
+            const currentIsRtl = htmlElement.getAttribute('dir') === 'rtl';
+            const newDir = currentIsRtl ? 'ltr' : 'rtl';
+            htmlElement.setAttribute('dir', newDir);
+            localStorage.setItem('dir', newDir);
+            rtlToggleBtn.innerHTML = newDir === 'rtl'
+              ? `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12H3M21 6H6M21 18H9"></path></svg>`
+              : `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h15M3 18h12"></path></svg>`;
           });
         }
 
