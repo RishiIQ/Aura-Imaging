@@ -1,20 +1,20 @@
-/* =================================================================ester
+/* ============================================================
    Aura Imaging - Design System & Navigation Styles
-   =================================================================== */
+   ============================================================ */
 
 :root {
-  --primary-color: #06b6d4;
-  --primary-dark: #0891b2;
-  --accent-color: #6366f1;
-  --bg-dark: #0b0f19;
-  --bg-card: rgba(17, 24, 39, 0.7);
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --border-color: rgba(255, 255, 255, 0.1);
+  --primary-color: #2563EB;
+  --primary-dark: #1D4ED8;
+  --accent-color: #3B82F6;
+  --bg-dark: #030712;
+  --bg-card: rgba(15, 23, 42, 0.95);
+  --text-main: #FFFFFF;
+  --text-muted: #9CA3AF;
+  --border-color: rgba(37, 99, 235, 0.3);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -33,9 +33,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(11, 15, 25, 0.85);
+  background: rgba(3, 7, 18, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
 }
 
 .navbar {
@@ -49,7 +49,7 @@ header {
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 900;
   background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -60,29 +60,29 @@ header {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-links a, .dropbtn {
   color: var(--text-main);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  border-radius: 9999px;
   transition: var(--transition);
 }
 
 .nav-links a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
-  color: var(--primary-color);
-  background: rgba(6, 182, 212, 0.08);
+  color: #60A5FA;
+  background: rgba(37, 99, 235, 0.15);
 }
 
 /* Dropdown Container */
@@ -97,9 +97,9 @@ header {
   min-width: 200px;
   background: var(--bg-card);
   backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  border: 2px solid #3B82F6;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.9);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -108,7 +108,7 @@ header {
   z-index: 1100;
 }
 
-.dropdown:hover .dropdown-content,
+.dropdown:hover .dropdown-content, 
 .dropdown:focus-within .dropdown-content {
   opacity: 1;
   visibility: visible;
@@ -117,14 +117,14 @@ header {
 
 .dropdown-content a {
   padding: 0.75rem 1rem;
-  border-radius: 8px;
+  border-radius: 0.75rem;
   width: 100%;
   color: var(--text-main);
 }
 
 .dropdown-content a:hover {
-  background: rgba(6, 182, 212, 0.15);
-  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.25);
+  color: #60A5FA;
 }
 
 /* Mobile Hamburger Menu Toggle */
@@ -155,61 +155,38 @@ header {
   cursor: pointer;
 }
 
-/* Ensure icons scale properly */
-#themeToggle .material-symbols-outlined,
+#themeToggle .material-symbols-outlined, 
 #rtlToggle .material-symbols-outlined {
   font-size: 20px;
   line-height: 1;
 }
 
-/* =================================================================
+/* ============================================================
    Professional Fluid Media Query Architecture
-   =================================================================== */
+   ============================================================ */
 
-/* Extra Small Devices (Phones, up to 480px) */
+/* Tablet & Intermediate Viewports (1024px to 1279px) 
+   Optimizes navigation pill spacing to prevent wrapping/overlap */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  header nav.hidden.lg\:flex,
+  header .hidden.lg\:flex {
+    gap: 0.2rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  header nav.hidden.lg\:flex a,
+  header nav.hidden.lg\:flex button {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Extra Small Devices (Phones, up-to 480px) */
 @media screen and (max-width: 480px) {
   .navbar {
     padding: 0.75rem 1rem;
-  }
-  
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    height: 100vh;
-    background: var(--bg-dark);
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
-    transition: var(--transition);
-  }
-
-  .nav-links.active {
-    right: 0;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .dropdown-content {
-    position: static;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding-left: 1rem;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    display: none;
-  }
-
-  .dropdown.active .dropdown-content {
-    display: flex;
-    flex-direction: column;
   }
 }
 
@@ -218,30 +195,17 @@ header {
   .navbar {
     padding: 1rem 1.5rem;
   }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .nav-links a, .dropbtn {
-    font-size: 0.95rem;
-    padding: 0.4rem 0.6rem;
-  }
 }
 
-/* Tablets & Small Laptops (769px to 1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+/* Tablets & Small Laptops (769px to 1023px) */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
   .navbar {
     padding: 1rem 2rem;
   }
-
-  .nav-links {
-    gap: 1.5rem;
-  }
 }
 
-/* Standard Desktops & Large Viewports (1025px and above) */
-@media screen and (min-width: 1025px) {
+/* Standard Desktops & Large Viewports (1280px and above) */
+@media screen and (min-width: 1280px) {
   .navbar {
     padding: 1.25rem 3rem;
   }

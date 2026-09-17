@@ -1,620 +1,571 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Booking | Aura Imaging</title>
-    <link rel="shortcut icon" href="./mri.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Material Symbols for Nav Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        glossyBlueScheme: {
-                            pureWhite: "#FFFFFF",
-                            deepBlack: "#030712",
-                            royalBlue: "#2563EB",
-                            electricBlue: "#3B82F6",
-                            skyHighlight: "#60A5FA",
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-      /* Glossy Reflection Card Effects */
-      .glossy-card {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 0.9));
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 20px 30px -10px rgba(37, 99, 235, 0.12);
-      }
+<!DOCTYPE html> 
+<html lang="en" dir="ltr" class="scroll-smooth"> 
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>Contact & Booking | Aura Imaging</title>     
+    <link rel="shortcut icon" href="./mri.png" type="image/x-icon">     
+    <link rel="stylesheet" href="./css/main.css">     
+    <script src="https://cdn.tailwindcss.com"></script>     
+    <!-- Lucide Icons CDN -->     
+    <script src="https://unpkg.com/lucide@latest"></script>     
+    <!-- Material Symbols for Nav Icons -->     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />     
+    <script>         
+        tailwind.config = {             
+            darkMode: 'class',             
+            theme: {                 
+                extend: {                     
+                    colors: {                         
+                        glossyBlueScheme: {                             
+                            pureWhite: "#FFFFFF",                             
+                            deepBlack: "#030712",                             
+                            royalBlue: "#2563EB",                             
+                            electricBlue: "#3B82F6",                             
+                            skyHighlight: "#60A5FA",                         
+                        }                     
+                    }                 
+                }             
+            }         
+        }     
+    </script>     
+    <style>       
+       /* Glossy Reflection Card Effects */       
+       .glossy-card {         
+         background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 0.9));         
+         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 20px 30px -10px rgba(37, 99, 235, 0.12);       
+       }       
+       .dark .glossy-card {         
+         background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.9));         
+         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 20px 30px -10px rgba(0, 0, 0, 0.9);       }       
+       /* Smooth bidirectional directional reveal animations */       
+       .reveal-from-left,       
+       .reveal-from-right,       
+       .reveal-from-bottom,       
+       .reveal-from-top {         
+         opacity: 0;         
+         transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);         
+         will-change: opacity, transform;       }       
+       .reveal-from-left { transform: translateX(-60px); }       
+       .reveal-from-right { transform: translateX(60px); }       
+       .reveal-from-bottom { transform: translateY(60px); }       
+       .reveal-from-top { transform: translateY(-60px); }       
+       /* Trigger state when visible in viewport */       
+       .reveal-from-left.is-visible,       
+       .reveal-from-right.is-visible,       
+       .reveal-from-bottom.is-visible,       
+       .reveal-from-top.is-visible {         
+         opacity: 1;         
+         transform: translate(0, 0);       }       
+       /* Dropdown Navigation Menu Styles */       
+       .nav-dropdown {         
+         position: relative;       }       
+       .nav-dropdown-content {         
+         position: absolute;         
+         top: 100%;         
+         left: 0;         
+         min-width: 190px;         
+         background: rgba(255, 255, 255, 0.95);         
+         backdrop-filter: blur(16px);         
+         border: 2px solid #2563EB;         
+         border-radius: 1rem;         
+         box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2);         
+         opacity: 0;         
+         visibility: hidden;         
+         transform: translateY(8px);         
+         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);         
+         padding: 0.5rem;         
+         z-index: 1100;       }       
+       .dark .nav-dropdown-content {         
+         background: rgba(3, 7, 18, 0.95);         
+         border: 2px solid #3B82F6;         
+         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.9);       }       
+       .nav-dropdown:hover .nav-dropdown-content,       
+       .nav-dropdown:focus-within .nav-dropdown-content {         
+         opacity: 1;         
+         visibility: visible;         
+         transform: translateY(0);       }       
+       #themeToggle, #rtlToggle {         
+         display: inline-flex;         
+         align-items: center;         
+         justify-content: center;         
+         cursor: pointer;       }       
+       #themeToggle .material-symbols-outlined,       
+       #rtlToggle .material-symbols-outlined {         
+         font-size: 20px;         
+         line-height: 1;       }     
+    </style> 
+</head> 
+<body class="bg-white dark:bg-black text-slate-900 dark:text-white antialiased transition-colors duration-300 overflow-x-hidden">     
+    <!-- Navigation Header --> 
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b-2 border-blue-600/30 dark:border-blue-500/30 transition-all duration-300 animate-on-load">   
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">          
+            <!-- Logo -->     
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">       
+                <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">         
+                    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />       
+                </div>       
+                <div class="flex flex-col leading-none">         
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>         
+                    <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>       
+                </div>     
+            </a>     
+            <!-- Desktop Navigation Pill with Dropdown Home Menu -->     
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm relative">       
+                <!-- Home Dropdown Button -->       
+                <div class="relative group" id="homeDropdownContainer">         
+                    <button id="homeDropdownBtn" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-1.5 focus:outline-none font-bold">           
+                        <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span>           
+                        <span class="font-semibold">Home</span>           
+                        <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">expand_more</span>         
+                    </button>         
+                    <!-- Styled Dropdown Menu Box -->         
+                    <div id="homeDropdownMenu" class="hidden absolute top-full left-0 mt-3 w-48 glossy-card border-2 border-blue-700 rounded-3xl shadow-2xl p-2 z-50 space-y-1 transform origin-top transition-all">           
+                        <a href="index.html" class="flex items-center gap-1 px-4 py-3 rounded-2xl text-xs font-medium text-slate-700 dark:text-neutral-200 hover:bg-blue-50 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all group/item">             
+                            <div class="w-8 h-8 rounded-xl  dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover/item:scale-110 transition-transform">               
+                                <span class="material-symbols-outlined text-[18px]">home</span>             
+                            </div>             
+                            <div>               
+                                <div class="font-bold">Home 1</div>                            
+                            </div>           
+                        </a>           
+                        <!-- Active Home 2 Link with Blue Background Accent -->
+                        <a href="home2.html" class="flex items-center gap-1 px-4 py-0 rounded-2xl text-xs font-semibold text-grey-500 bg-white dark:bg-blue-500 transition-all group/item shadow-sm">             
+                            <div class="w-8 h-8 rounded-xl bg-white dark:bg-blue-950 text-blue-600 flex items-center justify-center group-hover/item:scale-110 transition-transform">               
+                                <span class="material-symbols-outlined text-[18px]">home_work</span>             
+                            </div>             
+                            <div>               
+                                <div class="font-bold">Home 2</div>                          
+                            </div>           
+                        </a>         
+                    </div>       
+                </div>       
+                <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>       
+                <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>       
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>       
+                <a href="contact.html" class="px-4 py-2 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-sm font-bold transition-all">Contact</a>     
+            </nav>     
+            <!-- Right Utility Actions & Mobile Hamburger Toggle -->     
+            <div class="flex items-center gap-2">       
+                <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Text Direction"></button>       
+                <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Dark/Light Mode"></button>       
+                <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">         
+                    Book Appointment       
+                </a>       
+                <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center focus:outline-none shadow-sm" aria-label="Toggle Mobile Menu">         
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">           
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>         
+                    </svg>       
+                </button>     
+            </div>   
+        </div>   
+        <!-- Mobile Dropdown Navigation Drawer -->   
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-b-2 border-blue-600 dark:border-blue-400 px-6 py-6 space-y-3 shadow-2xl absolute w-full left-0 top-[80px] z-50">     
+            <div class="space-y-1">       
+                <button id="mobileHomeToggle" class="w-full flex items-center justify-between px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors focus:outline-none">         
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span> Home</span>         
+                    <span class="material-symbols-outlined text-[16px] transition-transform duration-200" id="mobileHomeChevron">expand_more</span>       
+                </button>       
+                <div id="mobileHomeSubmenu" class="hidden pl-4 space-y-1">         
+                    <a href="index.html" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-medium text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900">           
+                        <span class="material-symbols-outlined text-[16px] text-blue-600 dark:text-blue-400">home</span> Home 1         
+                    </a>         
+                    <!-- Active Mobile Home 2 Link with Blue Background Accent -->
+                    <a href="home2.html" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-blue-600 dark:bg-blue-500">           
+                        <span class="material-symbols-outlined text-[16px] text-white">home_work</span> Home 2         
+                    </a>       
+                </div>     
+            </div>     
+            <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Services</a>     
+            <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Prepare for Scan</a>     
+            <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Pricing & Insurance</a>     
+            <a href="contact.html" class="block px-4 py-3 rounded-xl font-bold text-white bg-blue-600 shadow">Contact</a>     
+            <div class="pt-4 border-t-2 border-slate-100 dark:border-neutral-800">       
+                <a href="contact.html#booking" class="block w-full text-center bg-blue-600 dark:bg-blue-500 text-white py-3.5 rounded-xl font-bold shadow-md">Book Appointment</a>     
+            </div>   
+        </div> 
+    </header>     
 
-      .dark .glossy-card {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.9));
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 20px 30px -10px rgba(0, 0, 0, 0.9);
-      }
+    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-black transition-colors duration-300">         
+        <!-- Section Header -->         
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal-from-top">             
+            <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Connect With Us</span>             
+            <h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-2 text-slate-900 dark:text-white">Location, Hours & Instant Booking</h1>             
+            <p class="mt-4 text-slate-600 dark:text-neutral-300 text-base leading-relaxed font-semibold">                 
+                Whether you need to schedule an advanced diagnostic scan, transmit a physician referral order, or speak with a billing advocate, our administrative team is available to assist you.             
+            </p>         
+        </div>         
 
-      /* Smooth bidirectional directional reveal animations */
-      .reveal-from-left,
-      .reveal-from-right,
-      .reveal-from-bottom,
-      .reveal-from-top {
-        opacity: 0;
-        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: opacity, transform;
-      }
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">             
+            <!-- Left Column: Location & Contact Info Cards -->             
+            <div class="lg:col-span-5 space-y-6 reveal-from-left">                 
+                <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-6">                     
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-white">Aura Imaging Center</h3>                     
+                    <div class="space-y-4 text-sm text-slate-600 dark:text-neutral-300 font-semibold">                         
+                        <div class="flex items-start gap-3">                             
+                            <span class="font-black text-blue-600 dark:text-blue-400">Address:</span>                             
+                            <span>1250 Medical Plaza Way, Suite 100<br>Metropolis, NY 10001</span>                         
+                        </div>                         
+                        <div class="flex items-start gap-3">                             
+                            <span class="font-black text-blue-600 dark:text-blue-400">Phone:</span>                             
+                            <span>(555) 123-4567</span>                         
+                        </div>                         
+                        <div class="flex items-start gap-3">                             
+                            <span class="font-black text-blue-600 dark:text-blue-400">Fax:</span>                             
+                            <span>(555) 123-4568 (Physician Referrals)</span>                         
+                        </div>                         
+                        <div class="flex items-start gap-3">                             
+                            <span class="font-black text-blue-600 dark:text-blue-400">Email:</span>                             
+                            <span>scheduling@auraimaging.com</span>                         
+                        </div>                     
+                    </div>                     
+                    <div class="border-t-2 border-slate-200 dark:border-neutral-800 pt-6">                         
+                        <h4 class="font-black text-sm mb-3 text-slate-900 dark:text-white">Facility Operating Hours</h4>                         
+                        <ul class="space-y-2 text-xs text-slate-600 dark:text-neutral-400 font-semibold">                             
+                            <li class="flex justify-between"><span>Monday - Friday:</span> <strong class="text-slate-900 dark:text-white">7:00 AM - 7:00 PM</strong></li>                             
+                            <li class="flex justify-between"><span>Saturday:</span> <strong class="text-slate-900 dark:text-white">8:00 AM - 2:00 PM</strong></li>                             
+                            <li class="flex justify-between"><span>Sunday:</span> <strong class="text-slate-900 dark:text-white">Closed (Emergency On-Call Only)</strong></li>                         
+                        </ul>                     
+                    </div>                 
+                </div>                 
 
-      .reveal-from-left { transform: translateX(-60px); }
-      .reveal-from-right { transform: translateX(60px); }
-      .reveal-from-bottom { transform: translateY(60px); }
-      .reveal-from-top { transform: translateY(-60px); }
+                <!-- Embedded Proper Interactive OpenStreetMap Location -->                 
+                <div class="rounded-3xl overflow-hidden shadow-xl h-72 border-2 border-blue-300/40 dark:border-neutral-800 relative">                     
+                    <iframe                          
+                        title="Aura Imaging Center Map Location"                         
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=-74.01%2C40.70%2C-73.98%2C40.73&amp;layer=mapnik&amp;marker=40.7128%2C-74.0060"                          
+                        class="w-full h-full border-0 filter dark:invert dark:hue-rotate-180 dark:contrast-125 transition-all">                     
+                    </iframe>                     
+                    <div class="absolute bottom-3 left-3 right-3 glossy-card p-3 rounded-xl border border-blue-200 dark:border-neutral-800 flex justify-between items-center text-xs">                         
+                        <span class="font-bold text-slate-900 dark:text-white">1250 Medical Plaza Way, Suite 100</span>                         
+                        <a href="https://www.openstreetmap.org/?mlat=40.7128&amp;mlon=-74.0060#map=16/40.7128/-74.0060" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 font-black hover:underline">View Larger Map</a>                     
+                    </div>                 
+                </div>             
+            </div>             
 
-      /* Trigger state when visible in viewport */
-      .reveal-from-left.is-visible,
-      .reveal-from-right.is-visible,
-      .reveal-from-bottom.is-visible,
-      .reveal-from-top.is-visible {
-        opacity: 1;
-        transform: translate(0, 0);
-      }
-
-      /* Dropdown Navigation Menu Styles */
-      .nav-dropdown {
-        position: relative;
-      }
-
-      .nav-dropdown-content {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 190px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(16px);
-        border: 2px solid #2563EB;
-        border-radius: 1rem;
-        box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(8px);
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 0.5rem;
-        z-index: 1100;
-      }
-
-      .dark .nav-dropdown-content {
-        background: rgba(3, 7, 18, 0.95);
-        border: 2px solid #3B82F6;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.9);
-      }
-
-      .nav-dropdown:hover .nav-dropdown-content,
-      .nav-dropdown:focus-within .nav-dropdown-content {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      #themeToggle, #rtlToggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-
-      #themeToggle .material-symbols-outlined,
-      #rtlToggle .material-symbols-outlined {
-        font-size: 20px;
-        line-height: 1;
-      }
-    </style>
-</head>
-<body class="bg-white dark:bg-black text-slate-900 dark:text-white antialiased transition-colors duration-300 overflow-x-hidden">
-
-    <!-- Navigation Header -->
-<header class="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b-2 border-blue-600/30 dark:border-blue-500/30 transition-all duration-300 animate-on-load">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-    
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-3 group shrink-0">
-      <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-        <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
-      </div>
-      <div class="flex flex-col leading-none">
-        <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
-        <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
-      </div>
-    </a>
-
-    <!-- Desktop Navigation Pill with Dropdown Home Menu -->
-    <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm relative">
-      <!-- Home Dropdown Button -->
-      <div class="relative group" id="homeDropdownContainer">
-        <button id="homeDropdownBtn" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-1.5 focus:outline-none font-bold">
-          <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span>
-          <span class="font-semibold">Home</span>
-          <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">expand_more</span>
-        </button>
-
-        <!-- Styled Dropdown Menu Box -->
-        <div id="homeDropdownMenu" class="hidden absolute top-full left-0 mt-3 w-52 glossy-card border-2 border-blue-500/40 rounded-3xl shadow-2xl p-2 z-50 space-y-1 transform origin-top transition-all">
-          <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-medium text-slate-700 dark:text-neutral-200 hover:bg-blue-50 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all group/item">
-            <div class="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover/item:scale-110 transition-transform">
-              <span class="material-symbols-outlined text-[18px]">home</span>
-            </div>
-            <div>
-              <div class="font-bold">Home 1</div>
-              
-            </div>
-          </a>
-          <a href="home2.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-semibold text-white bg-blue-600 dark:bg-blue-500 transition-all group/item shadow-sm">
-            <div class="w-8 h-8 rounded-xl bg-blue-500 dark:bg-blue-950 text-white flex items-center justify-center group-hover/item:scale-110 transition-transform">
-              <span class="material-symbols-outlined text-[18px]">home_work</span>
-            </div>
-            <div>
-              <div class="font-bold">Home 2</div>
-            
-            </div>
-          </a>
-        </div>
-      </div>
-      <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>
-      <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>
-      <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>
-      <a href="contact.html" class="px-4 py-2 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-sm font-bold transition-all">Contact</a>
-    </nav>
-
-    <!-- Right Utility Actions & Mobile Hamburger Toggle -->
-    <div class="flex items-center gap-2">
-      <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Text Direction"></button>
-
-      <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Dark/Light Mode"></button>
-
-      <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">
-        Book Appointment
-      </a>
-
-      <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center focus:outline-none shadow-sm" aria-label="Toggle Mobile Menu">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Dropdown Navigation Drawer -->
-  <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-b-2 border-blue-600 dark:border-blue-400 px-6 py-6 space-y-3 shadow-2xl absolute w-full left-0 top-[80px] z-50">
-    <div class="space-y-1">
-      <button id="mobileHomeToggle" class="w-full flex items-center justify-between px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors focus:outline-none">
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span> Home</span>
-        <span class="material-symbols-outlined text-[16px] transition-transform duration-200" id="mobileHomeChevron">expand_more</span>
-      </button>
-      <div id="mobileHomeSubmenu" class="hidden pl-4 space-y-1">
-        <a href="index.html" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-medium text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900">
-          <span class="material-symbols-outlined text-[16px] text-blue-600 dark:text-blue-400">home</span> Home 1
-        </a>
-        <a href="home2.html" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-blue-600 dark:bg-blue-500">
-          <span class="material-symbols-outlined text-[16px] text-white">home_work</span> Home 2
-        </a>
-      </div>
-    </div>
-    <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Services</a>
-    <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Prepare for Scan</a>
-    <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Pricing & Insurance</a>
-    <a href="contact.html" class="block px-4 py-3 rounded-xl font-bold text-white bg-blue-600 shadow">Contact</a>
-    <div class="pt-4 border-t-2 border-slate-100 dark:border-neutral-800">
-      <a href="contact.html#booking" class="block w-full text-center bg-blue-600 dark:bg-blue-500 text-white py-3.5 rounded-xl font-bold shadow-md">Book Appointment</a>
-    </div>
-  </div>
-</header>
-
-    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-black transition-colors duration-300">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-20 reveal-from-top">
-            <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Connect With Us</span>
-            <h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-2 text-slate-900 dark:text-white">Location, Hours & Instant Booking</h1>
-            <p class="mt-4 text-slate-600 dark:text-neutral-300 text-base leading-relaxed font-semibold">
-                Whether you need to schedule an advanced diagnostic scan, transmit a physician referral order, or speak with a billing advocate, our administrative team is available to assist you.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
-            <!-- Left Column: Location & Contact Info Cards -->
-            <div class="lg:col-span-5 space-y-6 reveal-from-left">
-                <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-6">
-                    <h3 class="text-2xl font-black text-slate-900 dark:text-white">Aura Imaging Center</h3>
-                    <div class="space-y-4 text-sm text-slate-600 dark:text-neutral-300 font-semibold">
-                        <div class="flex items-start gap-3">
-                            <span class="font-black text-blue-600 dark:text-blue-400">Address:</span>
-                            <span>1250 Medical Plaza Way, Suite 100<br>Metropolis, NY 10001</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="font-black text-blue-600 dark:text-blue-400">Phone:</span>
-                            <span>(555) 123-4567</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="font-black text-blue-600 dark:text-blue-400">Fax:</span>
-                            <span>(555) 123-4568 (Physician Referrals)</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="font-black text-blue-600 dark:text-blue-400">Email:</span>
-                            <span>scheduling@auraimaging.com</span>
-                        </div>
-                    </div>
-
-                    <div class="border-t-2 border-slate-200 dark:border-neutral-800 pt-6">
-                        <h4 class="font-black text-sm mb-3 text-slate-900 dark:text-white">Facility Operating Hours</h4>
-                        <ul class="space-y-2 text-xs text-slate-600 dark:text-neutral-400 font-semibold">
-                            <li class="flex justify-between"><span>Monday – Friday:</span> <strong class="text-slate-900 dark:text-white">7:00 AM – 7:00 PM</strong></li>
-                            <li class="flex justify-between"><span>Saturday:</span> <strong class="text-slate-900 dark:text-white">8:00 AM – 2:00 PM</strong></li>
-                            <li class="flex justify-between"><span>Sunday:</span> <strong class="text-slate-900 dark:text-white">Closed (Emergency On-Call Only)</strong></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Embedded Proper Interactive OpenStreetMap Location -->
-                <div class="rounded-3xl overflow-hidden shadow-xl h-72 border-2 border-blue-300/40 dark:border-neutral-800 relative">
-                    <iframe 
-                        title="Aura Imaging Center Map Location"
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=-74.01%2C40.70%2C-73.98%2C40.73&amp;layer=mapnik&amp;marker=40.7128%2C-74.0060" 
-                        class="w-full h-full border-0 filter dark:invert dark:hue-rotate-180 dark:contrast-125 transition-all">
-                    </iframe>
-                    <div class="absolute bottom-3 left-3 right-3 glossy-card p-3 rounded-xl border border-blue-200 dark:border-neutral-800 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-900 dark:text-white">1250 Medical Plaza Way, Suite 100</span>
-                        <a href="https://www.openstreetmap.org/?mlat=40.7128&amp;mlon=-74.0060#map=16/40.7128/-74.0060" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 font-black hover:underline">View Larger Map</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Interactive Appointment Booking Form -->
-            <div id="booking" class="lg:col-span-7 glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl reveal-from-right">
-                <h2 class="text-2xl font-black mb-2 text-slate-900 dark:text-white">Request an Appointment</h2>
-                <p class="text-sm text-slate-600 dark:text-neutral-300 mb-8 font-semibold">Complete the form below. Our scheduling coordinators will contact you within 24 hours to finalize your exact time slot.</p>
+            <!-- Right Column: Interactive Appointment Booking Form -->             
+            <div id="booking" class="lg:col-span-7 glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl reveal-from-right">                 
+                <h2 class="text-2xl font-black mb-2 text-slate-900 dark:text-white">Request an Appointment</h2>                 
+                <p class="text-sm text-slate-600 dark:text-neutral-300 mb-8 font-semibold">Complete the form below. Our scheduling coordinators will contact you within 24 hours to finalize your exact time slot.</p>                                  
                 
-                <div id="bookingSuccess" class="hidden mb-6 p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-sm font-semibold">
-                    ✓ Appointment request submitted successfully! We will contact you shortly to confirm details.
-                </div>
+                <div id="bookingSuccess" class="hidden mb-6 p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-sm font-semibold">                       
+                    Appointment request submitted successfully! We will contact you shortly to confirm details.                 
+                </div>                 
 
-                <form id="bookingForm" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">First Name</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Last Name</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Email Address</label>
-                            <input type="email" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Phone Number</label>
-                            <input type="tel" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Requested Diagnostic Modality</label>
-                        <select class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold">
-                            <option>3T Wide-Bore MRI</option>
-                            <option>128-Slice CT Scan</option>
-                            <option>High-Resolution Ultrasound</option>
-                            <option>Digital Radiography (X-Ray)</option>
-                            <option>Unsure / General Consultation</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Do you have a physician's prescription order?</label>
-                        <select class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold">
-                            <option>Yes, I have a physical/digital script</option>
-                            <option>Yes, my doctor is faxing it</option>
-                            <option>No, I need assistance obtaining an order</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-full transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] text-sm uppercase tracking-wider">
-                        Submit Appointment Request
-                    </button>
-                    <p class="text-[11px] text-slate-500 dark:text-neutral-400 text-center font-semibold">By submitting, you consent to secure medical data handling in accordance with our HIPAA compliance privacy policies.</p>
-                </form>
-            </div>
-        </div>
+                <form id="bookingForm" class="space-y-6">                     
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">                         
+                        <div>                             
+                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">First Name</label>                             
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>                         
+                        </div>                         
+                        <div>                             
+                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Last Name</label>                             
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>                         
+                        </div>                     
+                    </div>                     
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">                         
+                        <div>                             
+                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Email Address</label>                             
+                            <input type="email" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>                         
+                        </div>                         
+                        <div>                             
+                            <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Phone Number</label>                             
+                            <input type="tel" id="phoneInput" inputmode="tel" placeholder="(555) 123-4567" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold" required>                         
+                        </div>                     
+                    </div>                     
+                    <div>                         
+                        <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Requested Diagnostic Modality</label>                         
+                        <select class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold">                             
+                            <option>3T Wide-Bore MRI</option>                             
+                            <option>128-Slice CT Scan</option>                             
+                            <option>High-Resolution Ultrasound</option>                             
+                            <option>Digital Radiography (X-Ray)</option>                             
+                            <option>Unsure / General Consultation</option>                         
+                        </select>                     
+                    </div>                     
+                    <div>                         
+                        <label class="block text-xs font-black uppercase mb-1 text-slate-700 dark:text-neutral-300">Do you have a physician's prescription order?</label>                         
+                        <select class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold">                             
+                            <option>Yes, I have a physical/digital script</option>                             
+                            <option>Yes, my doctor is faxing it</option>                             
+                            <option>No, I need assistance obtaining an order</option>                         
+                        </select>                     
+                    </div>                     
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-full transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] text-sm uppercase tracking-wider">                         
+                        Submit Appointment Request                     
+                    </button>                     
+                    <p class="text-[11px] text-slate-500 dark:text-neutral-400 text-center font-semibold">By submitting, you consent to secure medical data handling in accordance with our HIPAA compliance privacy policies.</p>                 
+                </form>             
+            </div>         
+        </div>         
 
-        <!-- Additional Content Section: Department Direct Extensions -->
-        <div class="mb-20 space-y-8 reveal-from-bottom">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Direct Access</span>
-                <h2 class="text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Department Extensions & Desk Direct Lines</h2>
-                <p class="mt-2 text-slate-600 dark:text-neutral-300 text-sm font-semibold">Reach out directly to specialized administrative and clinical support desks for expedited service.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glossy-card p-6 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow">01</div>
-                    <h3 class="font-black text-lg text-slate-900 dark:text-white">Physician Referral Desk</h3>
-                    <p class="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">Dedicated secure fax and priority scheduling portal for attending physicians and medical specialists.</p>
-                    <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 104 | fax@auraimaging.com</p>
-                </div>
-                <div class="glossy-card p-6 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow">02</div>
-                    <h3 class="font-black text-lg text-slate-900 dark:text-white">Billing & Insurance Advocacy</h3>
-                    <p class="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">Consult with billing specialists regarding pre-authorization codes, itemized statements, and payment tiers.</p>
-                    <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 208 | billing@auraimaging.com</p>
-                </div>
-                <div class="glossy-card p-6 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow">03</div>
-                    <h3 class="font-black text-lg text-slate-900 dark:text-white">Patient Concierge & Records</h3>
-                    <p class="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">Request digital DICOM imaging files, secondary CD copies, or secure patient portal access assistance.</p>
-                    <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 312 | records@auraimaging.com</p>
-                </div>
-            </div>
-        </div>
+        <!-- Additional Content Section: Department Direct Extensions -->         
+        <div class="mb-20 space-y-8 reveal-from-bottom">             
+            <div class="text-center max-w-2xl mx-auto">                 
+                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Direct Access</span>                 
+                <h2 class="text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Department Extensions & Desk Direct Lines</h2>                 
+                <p class="mt-2 text-slate-600 dark:text-neutral-300 text-sm font-semibold">Reach out directly to specialized administrative and clinical support desks for expedited service.</p>             
+            </div>             
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">                 
+                <div class="glossy-card p-6 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-3">                     
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow">01</div>                     
+                    <h3 class="font-black text-lg text-slate-900 dark:text-white">Physician Referral Desk</h3>                     
+                    <p class="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">Dedicated secure fax and priority scheduling portal for attending physicians and medical specialists.</p>                     
+                    <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 104 | fax@auraimaging.com</p>                 </div>                 
+                <div class="glossy-card p-6 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-3">                     
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow">02</div>                     
+                    <h3 class="font-black text-lg text-slate-900 dark:text-white">Billing & Insurance Advocacy</h3>                     
+                    <p class="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">Consult with billing specialists regarding pre-authorization codes, itemized statements, and payment tiers.</p>                     
+                    <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 208 | billing@auraimaging.com</p>                 </div>                 
+                <div class="glossy-card p-6 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-3">                     
+                    <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow">03</div>                     
+                    <h3 class="font-black text-lg text-slate-900 dark:text-white">Patient Concierge & Records</h3>                     
+                    <p class="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">Request digital DICOM imaging files, secondary CD copies, or secure patient portal access assistance.</p>                     
+                    <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 312 | records@auraimaging.com</p>                 </div>             </div>         </div>         
 
-        <!-- Additional Content Section: Quick Support FAQ with Interactive Dropdown Buttons -->
-        <div class="glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl mb-20 space-y-8 reveal-from-bottom">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Assistance Hub</span>
-                <h2 class="text-2xl sm:text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Frequently Asked Contact Questions</h2>
-            </div>
+        <!-- Additional Content Section: Quick Support FAQ with Interactive Dropdown Buttons -->         
+        <div class="glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl mb-20 space-y-8 reveal-from-bottom">             
+            <div class="text-center max-w-2xl mx-auto">                 
+                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Assistance Hub</span>                 
+                <h2 class="text-2xl sm:text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Frequently Asked Contact Questions</h2>             
+            </div>                          
+            <div class="space-y-4">                 
+                <!-- FAQ Item 1 -->                 
+                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">                     
+                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">                         
+                        <span class="font-black text-sm text-slate-900 dark:text-white">How quickly will I receive a callback after booking online?</span>                         
+                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>                     
+                    </button>                     
+                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">                         
+                        Our clinical scheduling team reviews all online appointment submissions within 2 to 4 business hours to lock in exact time slots.                     
+                    </div>                 
+                </div>                 
+                <!-- FAQ Item 2 -->                 
+                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">                     
+                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">                         
+                        <span class="font-black text-sm text-slate-900 dark:text-white">Can I walk in for emergency X-ray imaging?</span>                         
+                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>                     
+                    </button>                     
+                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">                         
+                        Yes, digital radiography (X-ray) walk-ins are accepted during operational hours provided you bring a valid doctor's script.                     
+                    </div>                 
+                </div>                 
+                <!-- FAQ Item 3 -->                 
+                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">                     
+                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">                         
+                        <span class="font-black text-sm text-slate-900 dark:text-white">Where do I park when visiting the medical plaza?</span>                         
+                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>                     
+                    </button>                     
+                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">                         
+                        Complimentary valet parking and underground visitor garage spaces are available directly beneath 1250 Medical Plaza Way.                     </div>                 
+                </div>                 
+                <!-- FAQ Item 4 -->                 
+                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">                     
+                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">                         
+                        <span class="font-black text-sm text-slate-900 dark:text-white">How do I obtain my diagnostic reports securely?</span>                         
+                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>                     
+                    </button>                     
+                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">                         
+                        Reports and encrypted DICOM links are published directly to your patient portal profile within 24 hours of scan completion.                     
+                    </div>                 
+                </div>             
+            </div>         
+        </div>     
+    </main>     
+
+    <!-- Professional Enterprise Footer -->     
+    <footer class="bg-black text-white border-t-2 border-blue-600 py-16 text-sm">       
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">         
+            <div class="space-y-4">           
+                <div class="flex items-center gap-2">             
+                    <div class="w-8 h-8 rounded-xl bg-neutral-900 border-2 border-blue-500 flex items-center justify-center p-1.5 shadow-[0_0_10px_rgba(37,99,235,0.4)]">               
+                        <img src="./mri.png" alt="Logo" class="w-full h-full object-contain filter invert" />             
+                    </div>             
+                    <span class="text-xl font-black text-white">Aura <span class="text-blue-400">Imaging</span></span>           
+                </div>           
+                <p class="text-xs leading-relaxed text-neutral-400 font-semibold">             
+                    State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.           
+                </p>           
+                <!-- Social Media Icons -->           
+                <div class="flex items-center gap-3 pt-2">             
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="LinkedIn">               
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>             
+                    </a>             
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Twitter / X">               
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>             
+                    </a>             
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Facebook">               
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>             
+                    </a>             
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="YouTube">               
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>             </a>           </div>         </div>         <div>           
+                <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>           
+                <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">             
+                    <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home 1</a></li>             
+                    <li><a href="home2.html" class="hover:text-blue-400 transition-colors">Home 2</a></li>             
+                    <li><a href="services.html" class="hover:text-blue-400 transition-colors">Services & Modalities</a></li>             
+                    <li><a href="prepare.html" class="hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>             
+                    <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>             
+                    <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact & Booking</a></li>           
+                </ul>         
+            </div>         
+            <div>           
+                <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>           
+                <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">             
+                    <li><a href="services.html#3T_Wide" class="hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>             
+                    <li><a href="services.html#CT_Scan" class="hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>             
+                    <li><a href="services.html#Ultrasound" class="hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>             
+                    <li><a href="services.html#XRay" class="hover:text-blue-400 transition-colors">Digital X-Ray</a></li>           
+                </ul>         
+            </div>         
+            <div>           
+                <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>           
+                <p class="text-xs text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>           
+                <p class="text-xs text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>           
+                <p class="text-xs text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>         
+            </div>       
+        </div>       
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 font-semibold">         
+            <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>         
+            <div class="flex gap-6 mt-4 md:mt-0">           
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>           
+                <a href="hipaa.html" class="hover:text-white transition-colors">HIPAA Compliance</a>           
+                <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>         
+            </div>       
+        </div>     
+    </footer>     
+
+    <!-- Interactive Scripts & Dropdown Toggle Logic -->     
+    <script>       
+        document.addEventListener("DOMContentLoaded", () => {         
+            const htmlElement = document.documentElement;         
             
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">
-                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
-                        <span class="font-black text-sm text-slate-900 dark:text-white">How quickly will I receive a callback after booking online?</span>
-                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">
-                        Our clinical scheduling team reviews all online appointment submissions within 2 to 4 business hours to lock in exact time slots.
-                    </div>
-                </div>
+            // Theme Toggle Controller & Icon Synchronization         
+            const themeToggleBtn = document.getElementById('themeToggle');         
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {           
+                htmlElement.classList.add('dark');         
+            } else {           
+                htmlElement.classList.remove('dark');         
+            }         
+            updateThemeIcon();         
+            if (themeToggleBtn) {           
+                themeToggleBtn.addEventListener('click', () => {             
+                    htmlElement.classList.toggle('dark');             
+                    localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');             
+                    updateThemeIcon();           
+                });         
+            }         
+            function updateThemeIcon() {           
+                if (themeToggleBtn) {             
+                    const isDark = htmlElement.classList.contains('dark');             
+                    themeToggleBtn.innerHTML = `<span class="material-symbols-outlined">${isDark ? 'light_mode' : 'dark_mode'}</span>`;           
+                }         }         
 
-                <!-- FAQ Item 2 -->
-                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">
-                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
-                        <span class="font-black text-sm text-slate-900 dark:text-white">Can I walk in for emergency X-ray imaging?</span>
-                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">
-                        Yes, digital radiography (X-ray) walk-ins are accepted during operational hours provided you bring a valid doctor's script.
-                    </div>
-                </div>
+            // RTL/LTR Toggle with custom alignment lines icon         
+            const rtlToggleBtn = document.getElementById('rtlToggle');         
+            if (rtlToggleBtn) {           
+                rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${htmlElement.getAttribute('dir') === 'rtl' ? 'format_align_right' : 'format_align_left'}</span>`;           
+                rtlToggleBtn.addEventListener('click', () => {             
+                    const isRtl = htmlElement.getAttribute('dir') === 'rtl';             
+                    htmlElement.setAttribute('dir', isRtl ? 'ltr' : 'rtl');             
+                    rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${!isRtl ? 'format_align_right' : 'format_align_left'}</span>`;           
+                });         
+            }         
 
-                <!-- FAQ Item 3 -->
-                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">
-                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
-                        <span class="font-black text-sm text-slate-900 dark:text-white">Where do I park when visiting the medical plaza?</span>
-                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">
-                        Complimentary valet parking and underground visitor garage spaces are available directly beneath 1250 Medical Plaza Way.
-                    </div>
-                </div>
+            // Mobile Hamburger Menu Toggle         
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');         
+            const mobileMenu = document.getElementById('mobileMenu');         
+            if (mobileMenuBtn && mobileMenu) {           
+                mobileMenuBtn.addEventListener('click', (e) => {             
+                    e.stopPropagation();             
+                    mobileMenu.classList.toggle('hidden');           
+                });           
+                document.addEventListener('click', (e) => {             
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {               
+                        mobileMenu.classList.add('hidden');             
+                    }           
+                });         
+            }         
 
-                <!-- FAQ Item 4 -->
-                <div class="bg-slate-50 dark:bg-neutral-900 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-all faq-item">
-                    <button class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
-                        <span class="font-black text-sm text-slate-900 dark:text-white">How do I obtain my diagnostic reports securely?</span>
-                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 transition-transform duration-300 faq-chevron">expand_more</span>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 pt-0 text-xs text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold border-t border-slate-200 dark:border-neutral-800 pt-3 mt-1">
-                        Reports and encrypted DICOM links are published directly to your patient portal profile within 24 hours of scan completion.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+            // Desktop Home Dropdown Toggle         
+            const homeDropdownBtn = document.getElementById('homeDropdownBtn');         
+            const homeDropdownMenu = document.getElementById('homeDropdownMenu');         
+            if (homeDropdownBtn && homeDropdownMenu) {           
+                homeDropdownBtn.addEventListener('click', (e) => {             
+                    e.stopPropagation();             
+                    homeDropdownMenu.classList.toggle('hidden');           
+                });           
+                document.addEventListener('click', () => {             
+                    if (!homeDropdownMenu.classList.contains('hidden')) {               
+                        homeDropdownMenu.classList.add('hidden');             
+                    }           
+                });         
+            }         
 
-    <!-- Professional Enterprise Footer -->
-    <footer class="bg-black text-white border-t-2 border-blue-600 py-16 text-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-        <div class="space-y-4">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-xl bg-neutral-900 border-2 border-blue-500 flex items-center justify-center p-1.5 shadow-[0_0_10px_rgba(37,99,235,0.4)]">
-              <img src="./mri.png" alt="Logo" class="w-full h-full object-contain filter invert" />
-            </div>
-            <span class="text-xl font-black text-white">Aura <span class="text-blue-400">Imaging</span></span>
-          </div>
-          <p class="text-xs leading-relaxed text-neutral-400 font-semibold">
-            State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
-          </p>
+            // Mobile Home Submenu Accordion Toggle         
+            const mobileHomeToggle = document.getElementById('mobileHomeToggle');         
+            const mobileHomeSubmenu = document.getElementById('mobileHomeSubmenu');         
+            const mobileHomeChevron = document.getElementById('mobileHomeChevron');         
+            if (mobileHomeToggle && mobileHomeSubmenu) {           
+                mobileHomeToggle.addEventListener('click', () => {             
+                    mobileHomeSubmenu.classList.toggle('hidden');             
+                    if (mobileHomeChevron) {               
+                        mobileHomeChevron.classList.toggle('rotate-180');             
+                    }           
+                });         
+            }         
 
-          <!-- Social Media Icons -->
-          <div class="flex items-center gap-3 pt-2">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="LinkedIn">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Twitter / X">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Facebook">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="YouTube">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
-          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
-            <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home 1</a></li>
-            <li><a href="home2.html" class="hover:text-blue-400 transition-colors">Home 2</a></li>
-            <li><a href="services.html" class="hover:text-blue-400 transition-colors">Services & Modalities</a></li>
-            <li><a href="prepare.html" class="hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>
-            <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>
-            <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact & Booking</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
-          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
-            <li><a href="services.html#3T_Wide" class="hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>
-            <li><a href="services.html#CT_Scan" class="hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>
-            <li><a href="services.html#Ultrasound" class="hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>
-            <li><a href="services.html#XRay" class="hover:text-blue-400 transition-colors">Digital X-Ray</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
-          <p class="text-xs text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>
-          <p class="text-xs text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>
-          <p class="text-xs text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>
-        </div>
-      </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 font-semibold">
-        <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
-        <div class="flex gap-6 mt-4 md:mt-0">
-          <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="hipaa.html" class="hover:text-white transition-colors">HIPAA Compliance</a>
-          <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
-        </div>
-      </div>
-    </footer>
+            // FAQ Accordion Interaction Setup         
+            const faqItems = document.querySelectorAll('.faq-item');         
+            faqItems.forEach(item => {           
+                const btn = item.querySelector('button');           
+                const content = item.querySelector('.faq-content');           
+                const chevron = item.querySelector('.faq-chevron');           
+                btn.addEventListener('click', () => {             
+                    content.classList.toggle('hidden');             
+                    if (chevron) {               
+                        chevron.classList.toggle('rotate-180');             
+                    }           
+                });         
+            });         
 
-    <!-- Interactive Scripts & Dropdown Toggle Logic -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const htmlElement = document.documentElement;
+            // Bi-Directional Scroll Animation Observer         
+            const observerOptions = {           
+                root: null,           
+                rootMargin: '0px 0px -50px 0px',           
+                threshold: 0.15         
+            };         
+            const observer = new IntersectionObserver((entries) => {           
+                entries.forEach(entry => {             
+                    if (entry.isIntersecting) {               
+                        entry.target.classList.add('is-visible');             
+                    } else {               
+                        entry.target.classList.remove('is-visible');             
+                    }           
+                });         
+            }, observerOptions);         
+            document.querySelectorAll('.reveal-from-left, .reveal-from-right, .reveal-from-bottom, .reveal-from-top').forEach(el => {           
+                observer.observe(el);         
+            });         
 
-        // Theme Toggle Controller & Icon Synchronization
-        const themeToggleBtn = document.getElementById('themeToggle');
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          htmlElement.classList.add('dark');
-        } else {
-          htmlElement.classList.remove('dark');
-        }
-        updateThemeIcon();
-
-        if (themeToggleBtn) {
-          themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
-            updateThemeIcon();
-          });
-        }
-
-        function updateThemeIcon() {
-          if (themeToggleBtn) {
-            const isDark = htmlElement.classList.contains('dark');
-            themeToggleBtn.innerHTML = `<span class="material-symbols-outlined">${isDark ? 'light_mode' : 'dark_mode'}</span>`;
-          }
-        }
-
-        // RTL/LTR Toggle with custom alignment lines icon
-        const rtlToggleBtn = document.getElementById('rtlToggle');
-        if (rtlToggleBtn) {
-          rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${htmlElement.getAttribute('dir') === 'rtl' ? 'format_align_right' : 'format_align_left'}</span>`;
-          rtlToggleBtn.addEventListener('click', () => {
-            const isRtl = htmlElement.getAttribute('dir') === 'rtl';
-            htmlElement.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-            rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${!isRtl ? 'format_align_right' : 'format_align_left'}</span>`;
-          });
-        }
-
-        // Mobile Hamburger Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        if (mobileMenuBtn && mobileMenu) {
-          mobileMenuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('hidden');
-          });
-
-          document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-              mobileMenu.classList.add('hidden');
+            // Phone Number Input Restriction: Prevent typing alphabets in real-time
+            const phoneInput = document.getElementById('phoneInput');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/[A-Za-z]/g, '');
+                });
             }
-          });
-        }
 
-        // Desktop Home Dropdown Toggle
-        const homeDropdownBtn = document.getElementById('homeDropdownBtn');
-        const homeDropdownMenu = document.getElementById('homeDropdownMenu');
-
-        if (homeDropdownBtn && homeDropdownMenu) {
-          homeDropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            homeDropdownMenu.classList.toggle('hidden');
-          });
-
-          document.addEventListener('click', () => {
-            if (!homeDropdownMenu.classList.contains('hidden')) {
-              homeDropdownMenu.classList.add('hidden');
-            }
-          });
-        }
-
-        // Mobile Home Submenu Accordion Toggle
-        const mobileHomeToggle = document.getElementById('mobileHomeToggle');
-        const mobileHomeSubmenu = document.getElementById('mobileHomeSubmenu');
-        const mobileHomeChevron = document.getElementById('mobileHomeChevron');
-
-        if (mobileHomeToggle && mobileHomeSubmenu) {
-          mobileHomeToggle.addEventListener('click', () => {
-            mobileHomeSubmenu.classList.toggle('hidden');
-            if (mobileHomeChevron) {
-              mobileHomeChevron.classList.toggle('rotate-180');
-            }
-          });
-        }
-
-        // FAQ Accordion Interaction Setup
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-          const btn = item.querySelector('button');
-          const content = item.querySelector('.faq-content');
-          const chevron = item.querySelector('.faq-chevron');
-
-          btn.addEventListener('click', () => {
-            content.classList.toggle('hidden');
-            if (chevron) {
-              chevron.classList.toggle('rotate-180');
-            }
-          });
-        });
-
-        // Bi-Directional Scroll Animation Observer
-        const observerOptions = {
-          root: null,
-          rootMargin: '0px 0px -50px 0px',
-          threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-            } else {
-              entry.target.classList.remove('is-visible');
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-from-left, .reveal-from-right, .reveal-from-bottom, .reveal-from-top').forEach(el => {
-          observer.observe(el);
-        });
-
-        // Booking Form Submission Handling
-        const bookingForm = document.getElementById('bookingForm');
-        const bookingSuccess = document.getElementById('bookingSuccess');
-
-        bookingForm?.addEventListener('submit', (e) => {
-          e.preventDefault();
-          bookingSuccess.classList.remove('hidden');
-          bookingForm.reset();
-          bookingSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-      });
-    </script>
-    <script src="./js/main.js"></script>
-</body>
-</html>
+            // Booking Form Submission Handling         
+            const bookingForm = document.getElementById('bookingForm');         
+            const bookingSuccess = document.getElementById('bookingSuccess');         
+            bookingForm?.addEventListener('submit', (e) => {           
+                e.preventDefault();           
+                bookingSuccess.classList.remove('hidden');           
+                bookingForm.reset();           
+                bookingSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });         
+            });       
+        });     
+    </script>     
+    <script src="./js/main.js"></script> 
+</body> </html>
