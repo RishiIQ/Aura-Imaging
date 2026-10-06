@@ -195,7 +195,7 @@ const app = {
                 rtlToggleBtn.addEventListener('click', () => this.toggleDir());
             }
 
-            console.log('✅ App initialized successfully with persistent UI state');
+            
         } catch (err) {
             console.error('Init error:', err);
         }
@@ -233,12 +233,19 @@ const app = {
         const isRtl = Store.state.dir === 'rtl';
         document.documentElement.setAttribute('dir', Store.state.dir);
         
-        const rtlToggleBtn = document.getElementById('rtlToggle');
-        if (rtlToggleBtn) {
-            rtlToggleBtn.innerHTML = isRtl
-                ? `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12H3M21 6H6M21 18H9"></path></svg>`
-                : `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h15M3 18h12"></path></svg>`;
-        }
+        // RTL/LTR Toggle with professional text labels and custom styling
+const rtlToggleBtn = document.getElementById('rtlToggle');
+if (rtlToggleBtn) {
+  const isRtl = Store.state.dir === 'rtl';
+  rtlToggleBtn.textContent = isRtl ? 'LTR' : 'RTL';
+  rtlToggleBtn.className = "w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm text-[10px] font-black uppercase tracking-wider cursor-pointer";
+
+  rtlToggleBtn.addEventListener('click', () => {
+    Store.state.dir = Store.state.dir === 'ltr' ? 'rtl' : 'ltr';
+    const updatedIsRtl = Store.state.dir === 'rtl';
+    rtlToggleBtn.textContent = updatedIsRtl ? 'LTR' : 'RTL';
+  });
+}
     },
 
     toggleMobileMenu() {

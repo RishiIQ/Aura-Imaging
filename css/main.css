@@ -12,6 +12,12 @@
   --text-muted: #9CA3AF;
   --border-color: rgba(37, 99, 235, 0.3);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --gradient-start:rgba(255, 255, 255, 0.782);
+  --gradient-end:rgba(189, 188, 188, 0.749);
+}
+.dark{
+  --gradient-start:rgba(42, 37, 37, 0.943);
+  --gradient-end:rgba(63, 61, 61, 0.797);
 }
 
 *, *::before, *::after {
