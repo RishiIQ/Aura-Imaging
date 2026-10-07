@@ -80,8 +80,7 @@
         cursor: pointer;
       }
 
-      #themeToggle .material-symbols-outlined,
-      #rtlToggle .material-symbols-outlined {
+      #themeToggle .material-symbols-outlined {
         font-size: 20px;
         line-height: 1;
       }
@@ -93,16 +92,16 @@
     <header class="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b-2 border-blue-600/30 dark:border-blue-500/30 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
         
-        <!-- Logo -->
-<a href="index.html" class="flex items-center gap-3 group shrink-0">
-  <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
-  </div>
-  <div class="flex flex-col leading-none">
-    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
-    <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
-  </div>
-</a>
+        <!-- Standardized Logo -->
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+            <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
+            <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Cloud SaaS</span>
+          </div>
+        </a>
 
         <!-- Desktop Navigation Pill with Styled Home Dropdown Menu -->
         <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm relative">
@@ -123,7 +122,7 @@
                 </div>
                 <div>
                   <div class="font-bold">Home 1</div>
-                 
+                  <div class="text-[10px] text-slate-400">Main portal landing</div>
                 </div>
               </a>
               <a href="home2.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-semibold text-white bg-blue-600 dark:bg-blue-500 transition-all group/item shadow-sm">
@@ -132,26 +131,27 @@
                 </div>
                 <div>
                   <div class="font-bold">Home 2</div>
-                  
+                  <div class="text-[10px] opacity-75">SaaS architecture view</div>
                 </div>
               </a>
             </div>
           </div>
-          <a href="about.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About US</a>
+          <a href="about.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a>
           <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>
           <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>
           <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>
+          <a href="blog.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
           <a href="contact.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
         </nav>
 
         <!-- Right Utility Actions & Mobile Hamburger Toggle -->
         <div class="flex items-center gap-2">
-          <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Text Direction"></button>
+          <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm text-xs font-black uppercase tracking-wider" title="Toggle Text Direction">LTR</button>
 
           <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Dark/Light Mode"></button>
 
           <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-full font-extrabold text-sm shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">
-            Client Portal Login
+            Book Appointment
           </a>
 
           <!-- Mobile Hamburger Button (< 1024px) -->
@@ -185,6 +185,7 @@
         <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Services</a>
         <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Prepare for Scan</a>
         <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Pricing & Insurance</a>
+        <a href="blog.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Blog</a>
         <a href="contact.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Contact</a>
         <div class="pt-4 border-t-2 border-slate-100 dark:border-neutral-800">
           <a href="contact.html#booking" class="block w-full text-center bg-blue-600 text-white py-3.5 rounded-xl font-bold shadow-md">Client Portal Login</a>
@@ -192,10 +193,10 @@
       </div>
     </header>
 
-    <main class="space-y-24 pb-24 bg-white dark:bg-black transition-colors duration-300 mt-2 ">
+    <main class="space-y-24 pb-24 bg-white dark:bg-black transition-colors duration-300 mt-2">
         
         <!-- Hero Section -->
-        <section class="max-w-7xl mx-auto px-6 pt-16 lg:pt-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end)),url('https://imgs.search.brave.com/QA1zW141E0JUNtypbVB5sfmyXyvvJtFMyRBeNGT2eHA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtcGhvdG8v/c2Fhcy1jb25jZXB0/LWNvbGxhZ2VfMjMt/MjE0OTM5OTI5Ni5q/cGc_Z2E9R0ExLjEu/MTQ3MDUzMjEzNi4x/NzkxMDU1OTE2JnNl/bXQ9YWlzX2h5YnJp/ZCZ3PTc0MCZxPTgw')] bg-cover rounded-xl bg-center p-6">
+        <section class="max-w-7xl mx-auto px-6 pt-16 lg:pt-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[linear-gradient(to_right,rgba(3,7,18,0.9),rgba(15,23,42,0.8)),url('https://imgs.search.brave.com/QA1zW141E0JUNtypbVB5sfmyXyvvJtFMyRBeNGT2eHA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtcGhvdG8v/c2Fhcy1jb25jZXB0/LWNvbGxhZ2VfMjMt/MjE0OTM5OTI5Ni5q/cGc_Z2E9R0ExLjEu/MTQ3MDUzMjEzNi4x/NzkxMDU1OTE2JnNl/bXQ9YWlzX2h5YnJp/ZCZ3PTc0MCZxPTgw')] bg-cover rounded-xl bg-center p-6">
             <div class="lg:col-span-7 space-y-8 reveal-from-left">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest border border-blue-200 dark:border-blue-800">
                     <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-ping"></span>
@@ -286,7 +287,7 @@
             </div>
         </section>
 
-        <!-- Core Features Grid with Imagery -->
+        <!-- Core Features Grid with Rectified Alignment (items-stretch & flex flex-col justify-between) -->
         <section class="max-w-7xl mx-auto px-6 space-y-12">
             <div class="text-center space-y-4 max-w-2xl mx-auto reveal-from-top">
                 <span class="px-4 py-1.5 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-[10px] font-black uppercase tracking-[0.2em] border border-blue-200 dark:border-blue-800">
@@ -300,21 +301,23 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                 <!-- Feature Card 1 -->
                 <div class="glossy-card rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 overflow-hidden group hover:-translate-y-1 transition-all duration-300 reveal-from-left flex flex-col justify-between shadow-xl">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://imgs.search.brave.com/12kouwesU2H_O9qlWBIx0xb88Cm9JQWvvmYo41fy8j0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hY3F1/YWludHNvZnQuY29t/L2ltYWdlcy93aGF0/LWEtc2Fhcy1jaWNk/LXBpcGVsaW5lLWFj/dHVhbGx5LWlzLndl/YnA" alt="Pipelines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
                     </div>
-                    <div class="p-8 space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold shadow">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                    <div class="p-8 space-y-4 flex flex-col flex-1 justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold shadow">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-black text-slate-900 dark:text-white">Automated Pipelines</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
+                                Trigger custom webhook sequences and sync diagnostic datasets instantly without manual intervention.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 dark:text-white">Automated Pipelines</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
-                            Trigger custom webhook sequences and sync diagnostic datasets instantly without manual intervention.
-                        </p>
                     </div>
                 </div>
 
@@ -324,14 +327,16 @@
                         <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Security Access" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
                     </div>
-                    <div class="p-8 space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold shadow">
-                            <i data-lucide="lock" class="w-6 h-6"></i>
+                    <div class="p-8 space-y-4 flex flex-col flex-1 justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold shadow">
+                                <i data-lucide="lock" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-black text-slate-900 dark:text-white">Role-Based Access Control</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
+                                Granular permission trees ensure practitioners and administrators only view authorized records.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 dark:text-white">Role-Based Access Control</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
-                            Granular permission trees ensure practitioners and administrators only view authorized records.
-                        </p>
                     </div>
                 </div>
 
@@ -341,14 +346,16 @@
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Telemetry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
                     </div>
-                    <div class="p-8 space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold shadow">
-                            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                    <div class="p-8 space-y-4 flex flex-col flex-1 justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold shadow">
+                                <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-black text-slate-900 dark:text-white">Real-Time Telemetry</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
+                                Monitor cluster resource allocation, API response times, and database query yields in a unified canvas.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 dark:text-white">Real-Time Telemetry</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-semibold">
-                            Monitor cluster resource allocation, API response times, and database query yields in a unified canvas.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -368,8 +375,8 @@
             </div>
         </section>
 
-        <!-- Pricing Tiers Matrix -->
-        <section class="max-w-7xl mx-auto px-6 space-y-12">
+        <!-- Pricing Tiers Matrix with Rectified "Most Popular" Badge Alignment & Equal Heights -->
+        <section class="max-w-7xl mx-auto px-6 space-y-12 pt-12">
             <div class="text-center space-y-4 max-w-2xl mx-auto reveal-from-top">
                 <span class="px-4 py-1.5 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-[10px] font-black uppercase tracking-[0.2em] border border-blue-200 dark:border-blue-800">
                     Transparent Pricing
@@ -382,7 +389,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-6">
                 <!-- Tier 1: Starter -->
                 <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 flex flex-col justify-between space-y-8 reveal-from-left shadow-xl">
                     <div class="space-y-4">
@@ -405,9 +412,9 @@
                     </a>
                 </div>
 
-                <!-- Tier 2: Professional (Highlighted) -->
-                <div class="bg-neutral-950 p-8 rounded-3xl border-4 border-blue-600 flex flex-col justify-between space-y-8 relative shadow-2xl reveal-from-bottom">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
+                <!-- Tier 2: Professional (Highlighted with mt-4 for badge clearance & perfect alignment) -->
+                <div class="bg-neutral-950 p-8 rounded-3xl border-4 border-blue-600 flex flex-col justify-between space-y-0 relative shadow-2xl reveal-from-bottom mt-4 lg:mt-0">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg z-10">
                         Most Popular
                     </div>
                     <div class="space-y-4">
@@ -562,76 +569,79 @@
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Professional Enterprise Footer -->
-    <footer class="bg-black text-white border-t-2 border-blue-600 py-16 text-sm">
+    <!-- Professional Enterprise Footer with Rectified Colors & Social Icons -->
+    <footer class="bg-white dark:bg-black text-slate-900 dark:text-white border-t-2 border-blue-600 py-16 text-sm transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         <div class="space-y-4">
           <div class="flex items-center gap-2">
-            <!-- Logo -->
-<a href="index.html" class="flex items-center gap-3 group shrink-0">
-  <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
-  </div>
-</a>
-            <span class="text-xl font-black text-white">Aura <span class="text-blue-400">Imaging</span></span>
+            <!-- Standardized Logo -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
+              </div>
+              <div class="flex flex-col leading-none">
+                <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
+                <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
+              </div>
+            </a>
           </div>
-          <p class="text-xs leading-relaxed text-neutral-400 font-semibold">
+          <p class="text-xs leading-relaxed text-slate-600 dark:text-neutral-400 font-semibold">
             State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
           </p>
 
           <!-- Social Media Icons -->
           <div class="flex items-center gap-3 pt-2">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="LinkedIn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Twitter / X">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="Twitter / X">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="Facebook">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="YouTube">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="YouTube">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
-          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
-            <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home 1</a></li>
-            <li><a href="home2.html" class="hover:text-blue-400 transition-colors">Home 2</a></li>
-            <li><a href="about.html" class="hover:text-blue-400 transition-colors">About Us</a></li>
-            <li><a href="services.html" class="hover:text-blue-400 transition-colors">Services & Modalities</a></li>
-            <li><a href="prepare.html" class="hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>
-            <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>
-            <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact & Booking</a></li>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-xs font-semibold text-slate-600 dark:text-neutral-400">
+            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home 1</a></li>
+            <li><a href="home2.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services & Modalities</a></li>
+            <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>
+            <li><a href="blog.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact & Booking</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
-          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
-            <li><a href="services.html#3T_Wide" class="hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>
-            <li><a href="services.html#CT_Scan" class="hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>
-            <li><a href="services.html#Ultrasound" class="hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>
-            <li><a href="services.html#XRay" class="hover:text-blue-400 transition-colors">Digital X-Ray</a></li>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
+          <ul class="space-y-2.5 text-xs font-semibold text-slate-600 dark:text-neutral-400">
+            <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>
+            <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>
+            <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>
+            <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Digital X-Ray</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
-          <p class="text-xs text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>
-          <p class="text-xs text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>
-          <p class="text-xs text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
+          <p class="text-xs text-slate-600 dark:text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>
+          <p class="text-xs text-slate-600 dark:text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>
+          <p class="text-xs text-slate-600 dark:text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 font-semibold">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 dark:text-neutral-400 font-semibold">
         <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
         <div class="flex gap-6 mt-4 md:mt-0">
-          <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="hipaa.html" class="hover:text-white transition-colors">HIPAA Compliance</a>
-          <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
+          <a href="privacy.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">Privacy Policy</a>
+          <a href="hipaa.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">HIPAA Compliance</a>
+          <a href="terms.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">Terms of Use</a>
         </div>
       </div>
     </footer>
@@ -670,11 +680,14 @@
 
         const rtlToggleBtn = document.getElementById('rtlToggle');
         if (rtlToggleBtn) {
-          rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${htmlElement.getAttribute('dir') === 'rtl' ? 'format_align_right' : 'format_align_left'}</span>`;
+          const isRtl = htmlElement.getAttribute('dir') === 'rtl';
+          rtlToggleBtn.textContent = isRtl ? 'LTR' : 'RTL';
           rtlToggleBtn.addEventListener('click', () => {
-            const isRtl = htmlElement.getAttribute('dir') === 'rtl';
-            htmlElement.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-            rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${!isRtl ? 'format_align_right' : 'format_align_left'}</span>`;
+            const currentIsRtl = htmlElement.getAttribute('dir') === 'rtl';
+            const newDir = currentIsRtl ? 'ltr' : 'rtl';
+            htmlElement.setAttribute('dir', newDir);
+            localStorage.setItem('dir', newDir);
+            rtlToggleBtn.textContent = newDir === 'rtl' ? 'LTR' : 'RTL';
           });
         }
 

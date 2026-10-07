@@ -107,8 +107,7 @@
         cursor: pointer;
       }
 
-      #themeToggle .material-symbols-outlined,
-      #rtlToggle .material-symbols-outlined {
+      #themeToggle .material-symbols-outlined {
         font-size: 20px;
         line-height: 1;
       }
@@ -120,18 +119,18 @@
     <header class="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b-2 border-blue-600/30 dark:border-blue-500/30 transition-all duration-300 animate-on-load">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
         
-        <!-- Logo -->
-<a href="index.html" class="flex items-center gap-3 group shrink-0">
-  <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
-  </div>
-  <div class="flex flex-col leading-none">
-    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
-    <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
-  </div>
-</a>
+        <!-- Standardized Logo -->
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+            <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
+            <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
+          </div>
+        </a>
 
-        <!-- Desktop Navigation Pill with Dropdown Home Menu -->
+        <!-- Desktop Navigation Pill with Dropdown Home Menu & Blog Link -->
         <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm relative">
           <!-- Home Dropdown Button -->
           <div class="relative group" id="homeDropdownContainer">
@@ -165,12 +164,13 @@
           <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>
           <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>
           <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>
+          <a href="blog.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
           <a href="contact.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
         </nav>
 
         <!-- Right Utility Actions & Mobile Hamburger Toggle -->
         <div class="flex items-center gap-2">
-          <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Text Direction"></button>
+          <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm text-xs font-black uppercase tracking-wider" title="Toggle Text Direction">LTR</button>
           <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Dark/Light Mode"></button>
           <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">
             Book Appointment
@@ -203,6 +203,7 @@
         <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Services</a>
         <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Prepare for Scan</a>
         <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Pricing & Insurance</a>
+        <a href="blog.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Blog</a>
         <a href="contact.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Contact</a>
         <div class="pt-4 border-t-2 border-slate-100 dark:border-neutral-800">
           <a href="contact.html#booking" class="block w-full text-center bg-blue-600 dark:bg-blue-500 text-white py-3.5 rounded-xl font-bold shadow-md">Book Appointment</a>
@@ -213,10 +214,10 @@
     <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-black transition-colors duration-300 space-y-24">
         
         <!-- Section Header -->
-        <div class="text-center max-w-8xl  mx-auto reveal-from-top bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end)),url('https://imgs.search.brave.com/uASXrYQagtCianiWMlGnBS3g7y_hEkQAFeZJhOVgyo8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDIv/MzMxLzU0Ni9zbWFs/bC9waHJhc2UtYWJv/dXQtdXMtd2l0aC1t/YWduaWZ5aW5nLWds/YXNzLXBob3RvLmpw/Zw')] bg-cover bg-center p-32">
-            <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Our Core Philosophy</span>
-            <h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-2 text-slate-900 dark:text-white">Pioneering Human-Centric Diagnostics</h1>
-            <p class="mt-4 text-slate-600 dark:text-neutral-300 text-base leading-relaxed font-semibold">
+        <div class="text-center max-w-8xl mx-auto reveal-from-top bg-[linear-gradient(to_right,rgba(3,7,18,0.9),rgba(15,23,42,0.8)),url('https://imgs.search.brave.com/rIMRFFnN5Ly9rSTqX-B5Nzw5WkBcFUDIH1xZdeVWDZ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNC8w/OC8xNS8wNi8xNi9p/bXByaW50LTQxODU5/NF82NDAuanBn')] bg-cover bg-center p-16 sm:p-32 rounded-3xl border-2 border-blue-500/30 shadow-2xl">
+            <span class="text-blue-400 font-black uppercase text-xs tracking-widest bg-blue-600/20 px-4 py-1.5 rounded-full border border-blue-500/30">Our Core Philosophy</span>
+            <h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-4 text-white">Pioneering Human-Centric Diagnostics</h1>
+            <p class="mt-4 text-neutral-300 text-base leading-relaxed font-semibold max-w-3xl mx-auto">
                 Founded on principles of extreme diagnostic precision and patient comfort, Aura Imaging bridges the gap between advanced hospital infrastructure and spa-like outpatient care.
             </p>
         </div>
@@ -254,9 +255,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- NEW SECTION 1: Meet Our Clinical Advisory Board              -->
-        <!-- ============================================================ -->
+        <!-- Clinical Advisory Board -->
         <section class="space-y-12 reveal-from-bottom">
             <div class="text-center max-w-2xl mx-auto">
                 <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Medical Leadership</span>
@@ -264,7 +263,6 @@
                 <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold mt-2">Guiding our diagnostic protocols with decades of specialized hospital experience.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Board Member 1 -->
                 <div class="glossy-card rounded-3xl overflow-hidden border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl flex flex-col">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" alt="Dr. Evelyn Vance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
@@ -277,7 +275,6 @@
                         </p>
                     </div>
                 </div>
-                <!-- Board Member 2 -->
                 <div class="glossy-card rounded-3xl overflow-hidden border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl flex flex-col">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1170&auto=format&fit=crop" alt="Dr. Marcus Chen" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
@@ -290,10 +287,9 @@
                         </p>
                     </div>
                 </div>
-                <!-- Board Member 3 -->
                 <div class="glossy-card rounded-3xl overflow-hidden border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl flex flex-col">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="https://imgs.search.brave.com/ngA-0Nd5G8L0e8YmiBiiizFmzI5aLDT05NP-UpDrQ-4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgw/NjYwODU0NC9waG90/by9wb3J0cmFpdC1v/Zi1hLWZlbWFsZS1k/b2N0b3ItYXQtdGhl/LXdvcmtwbGFjZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/TUFSa3R0bGZKMUpv/QXhLZmZybVh4Yklf/cklQSlRLV2FLVHJG/djFxd0NaYz0" alt="Dr. Alana Rostova" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="https://imgs.search.brave.com/XvF4bGqV8SbgCy41seROVMvu_ivA_Ix2a1mZK7eK2kk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvNTcz/ODczNS9wZXhlbHMt/cGhvdG8tNTczODcz/NS5qcGVnP2NzPXRp/bnlzcmdiJmRwcj0x/Jnc9NTAw" alt="Dr. Alana Rostova" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-8 space-y-3">
                         <h4 class="text-xl font-black text-slate-900 dark:text-white">Dr. Alana Rostova, MD</h4>
@@ -306,9 +302,7 @@
             </div>
         </section>
 
-        <!-- ============================================================ -->
-        <!-- NEW SECTION 2: Our Technology & Equipment Standards          -->
-        <!-- ============================================================ -->
+        <!-- Technology Standards -->
         <section class="glossy-card p-8 sm:p-16 rounded-3xl border-2 border-blue-500/40 shadow-2xl space-y-12 reveal-from-bottom">
             <div class="text-center max-w-2xl mx-auto">
                 <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Infrastructure</span>
@@ -333,9 +327,7 @@
             </div>
         </section>
 
-        <!-- ============================================================ -->
-        <!-- NEW SECTION 3: Patient Testimonials & Success Stories        -->
-        <!-- ============================================================ -->
+        <!-- Testimonials -->
         <section class="space-y-12 reveal-from-bottom">
             <div class="text-center max-w-2xl mx-auto">
                 <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Patient Trust</span>
@@ -352,7 +344,7 @@
                         <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-black text-xs">SM</div>
                         <div>
                             <div class="font-bold text-xs">Samantha Miller</div>
-                            <div class="text-[10px] text-slate-400 font-mono">Brain MRI Patient</div>
+                            <div class="text-[10px] text-slate-600 font-mono">Brain MRI Patient</div>
                         </div>
                     </div>
                 </div>
@@ -364,67 +356,158 @@
                     <div class="flex items-center gap-3 pt-2 border-t border-slate-200 dark:border-neutral-800">
                         <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-black text-xs">DR</div>
                         <div>
-                            <div class="font-bold text-xs">David Reynolds</div>
-                            <div class="text-[10px] text-slate-400 font-mono">CT Scan Self-Pay Patient</div>
+                            <div class="font-bold text-xs ">David Reynolds</div>
+                            <div class="text-[10px] text-slate-600 font-mono">CT Scan Self-Pay Patient</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ============================================================ -->
+        <!-- NEW SECTION 4: Quality Assurance & Peer Review Standards     -->
+        <!-- ============================================================ -->
+        <section class="glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-8 reveal-from-bottom">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Diagnostic Integrity</span>
+                <h2 class="text-3xl font-black text-slate-900 dark:text-white mt-1">Dual-Tier Quality Assurance</h2>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold mt-2">Every scan is subjected to rigorous internal calibration and peer validation.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 dark:bg-neutral-900 p-6 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 space-y-2">
+                    <div class="font-black text-blue-600 dark:text-blue-400 text-lg">01</div>
+                    <h4 class="font-black text-base text-slate-900 dark:text-white">Daily Hardware Calibration</h4>
+                    <p class="text-xs text-slate-600 dark:text-neutral-300 font-semibold leading-relaxed">Our 3T MRI and 128-slice CT scanners undergo automated daily magnetic field shimming and tube output profiling to eliminate signal drift.</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-neutral-900 p-6 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 space-y-2">
+                    <div class="font-black text-indigo-600 dark:text-indigo-400 text-lg">02</div>
+                    <h4 class="font-black text-base text-slate-900 dark:text-white">Subspecialty Radiologist Review</h4>
+                    <p class="text-xs text-slate-600 dark:text-neutral-300 font-semibold leading-relaxed">Studies are routed directly to fellowship-trained subspecialists (e.g., neuroradiologists, musculoskeletal experts) for precise anatomical interpretation.</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-neutral-900 p-6 rounded-2xl border-2 border-blue-200 dark:border-neutral-800 space-y-2">
+                    <div class="font-black text-blue-500 dark:text-sky-400 text-lg">03</div>
+                    <h4 class="font-black text-base text-slate-900 dark:text-white">Rapid Discrepancy Audits</h4>
+                    <p class="text-xs text-slate-600 dark:text-neutral-300 font-semibold leading-relaxed">Randomized monthly internal peer audits ensure our diagnostic accuracy metrics consistently exceed national benchmarks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION 5: Patient Comfort & Accessibility               -->
+        <!-- ============================================================ -->
+        <section class="space-y-8 reveal-from-bottom">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Inclusive Care</span>
+                <h2 class="text-3xl font-black text-slate-900 dark:text-white mt-1">Designed for Every Patient</h2>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold mt-2">Accessibility and sensory comfort are embedded into our facility architecture.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-4">
+                    <h4 class="text-xl font-black text-slate-900 dark:text-white">Sensory & Claustrophobia Support</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold leading-relaxed">
+                        For patients experiencing anxiety or severe claustrophobia, our wide-bore suites feature ambient visual projection screens, soothing musical playlists, and continuous two-way intercom communication with certified technologists.
+                    </p>
+                </div>
+                <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-4">
+                    <h4 class="text-xl font-black text-slate-900 dark:text-white">Full ADA Compliance & Assistance</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold leading-relaxed">
+                        Our facility features zero-threshold entryways, wide hydraulic transfer tables, bilingual administrative support staff, and dedicated escort services for mobility-impaired visitors.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION 6: Research & Clinical Partnerships              -->
+        <!-- ============================================================ -->
+        <section class="glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-from-bottom">
+            <div class="lg:col-span-8 space-y-4">
+                <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Academic Collaboration</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">Advancing Medical Imaging Through Research</h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold leading-relaxed">
+                    Aura Imaging actively collaborates with academic medical institutions and software innovators to test emerging AI reconstruction algorithms and ultra-low dose scanning protocols, ensuring our patients always benefit from cutting-edge clinical advancements.
+                </p>
+            </div>
+            <div class="lg:col-span-4 flex justify-start lg:justify-end">
+                <a href="contact.html" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all">
+                    Partner With Our Team
+                </a>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Professional Enterprise Footer -->
-    <footer class="bg-black text-white border-t-2 border-blue-600 py-16 text-sm">
+    <!-- Professional Enterprise Footer with Social Icons & Correct Colors -->
+    <footer class="bg-white dark:bg-black text-slate-900 dark:text-white border-t-2 border-blue-600 py-16 text-sm transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         <div class="space-y-4">
           <div class="flex items-center gap-2">
-            <!-- Logo -->
-<a href="index.html" class="flex items-center gap-3 group shrink-0">
-  <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
-  </div>
-</a>
-            <span class="text-xl font-black text-white">Aura <span class="text-blue-400">Imaging</span></span>
+            <!-- Standardized Logo -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
+              </div>
+              <div class="flex flex-col leading-none">
+                <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
+                <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
+              </div>
+            </a>
           </div>
-          <p class="text-xs leading-relaxed text-neutral-400 font-semibold">
+          <p class="text-xs leading-relaxed text-slate-600 dark:text-neutral-400 font-semibold">
             State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.
           </p>
+
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="Twitter / X">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="Facebook">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="YouTube">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
-          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
-            <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home 1</a></li>
-            <li><a href="home2.html" class="hover:text-blue-400 transition-colors">Home 2</a></li>
-            <li><a href="about.html" class="hover:text-blue-400 transition-colors">About Us</a></li>
-            <li><a href="services.html" class="hover:text-blue-400 transition-colors">Services & Modalities</a></li>
-            <li><a href="prepare.html" class="hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>
-            <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>
-            <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact & Booking</a></li>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-xs font-semibold text-slate-600 dark:text-neutral-400">
+            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home 1</a></li>
+            <li><a href="home2.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services & Modalities</a></li>
+            <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>
+            <li><a href="blog.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact & Booking</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
-          <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">
-            <li><a href="services.html#3T_Wide" class="hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>
-            <li><a href="services.html#CT_Scan" class="hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>
-            <li><a href="services.html#Ultrasound" class="hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>
-            <li><a href="services.html#XRay" class="hover:text-blue-400 transition-colors">Digital X-Ray</a></li>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>
+          <ul class="space-y-2.5 text-xs font-semibold text-slate-600 dark:text-neutral-400">
+            <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>
+            <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>
+            <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>
+            <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Digital X-Ray</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
-          <p class="text-xs text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>
-          <p class="text-xs text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>
-          <p class="text-xs text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>
+          <p class="text-xs text-slate-600 dark:text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>
+          <p class="text-xs text-slate-600 dark:text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>
+          <p class="text-xs text-slate-600 dark:text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 font-semibold">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 dark:text-neutral-400 font-semibold">
         <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>
         <div class="flex gap-6 mt-4 md:mt-0">
-          <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="hipaa.html" class="hover:text-white transition-colors">HIPAA Compliance</a>
-          <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
+          <a href="privacy.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">Privacy Policy</a>
+          <a href="hipaa.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">HIPAA Compliance</a>
+          <a href="terms.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">Terms of Use</a>
         </div>
       </div>
     </footer>
@@ -458,14 +541,17 @@
           }
         }
 
-        // RTL/LTR Toggle
+        // RTL/LTR Toggle with text labels
         const rtlToggleBtn = document.getElementById('rtlToggle');
         if (rtlToggleBtn) {
-          rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${htmlElement.getAttribute('dir') === 'rtl' ? 'format_align_right' : 'format_align_left'}</span>`;
+          const isRtl = htmlElement.getAttribute('dir') === 'rtl';
+          rtlToggleBtn.textContent = isRtl ? 'LTR' : 'RTL';
           rtlToggleBtn.addEventListener('click', () => {
-            const isRtl = htmlElement.getAttribute('dir') === 'rtl';
-            htmlElement.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-            rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${!isRtl ? 'format_align_right' : 'format_align_left'}</span>`;
+            const currentIsRtl = htmlElement.getAttribute('dir') === 'rtl';
+            const newDir = currentIsRtl ? 'ltr' : 'rtl';
+            htmlElement.setAttribute('dir', newDir);
+            localStorage.setItem('dir', newDir);
+            rtlToggleBtn.textContent = newDir === 'rtl' ? 'LTR' : 'RTL';
           });
         }
 

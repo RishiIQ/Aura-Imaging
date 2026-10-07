@@ -110,45 +110,36 @@
     <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
   </div>
 </a>    
-            <!-- Desktop Navigation Pill with Dropdown Home Menu -->     
-            <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm relative">       
+            <!-- Desktop Navigation Pill with Dropdown Home Menu & Blog Link -->     
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-neutral-900 px-3 py-1.5 rounded-full border-2 border-blue-200 dark:border-neutral-800 text-sm font-medium text-slate-700 dark:text-neutral-200 shadow-sm">       
                 <!-- Home Dropdown Button -->       
-                <div class="relative group" id="homeDropdownContainer">         
-                    <button id="homeDropdownBtn" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-1.5 focus:outline-none font-bold">           
+                <div class="nav-dropdown">         
+                    <button class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 font-bold">           
                         <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span>           
-                        <span class="font-semibold">Home</span>           
-                        <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">expand_more</span>         
+                        Home           
+                        <span class="material-symbols-outlined text-[16px]">expand_more</span>         
                     </button>         
-                    <!-- Styled Dropdown Menu Box -->         
-                    <div id="homeDropdownMenu" class="hidden absolute top-full left-0 mt-3 w-48 glossy-card border-2 border-blue-700 rounded-3xl shadow-2xl p-2 z-50 space-y-1 transform origin-top transition-all">           
-                        <a href="index.html" class="flex items-center gap-1 px-4 py-3 rounded-2xl text-xs font-medium text-slate-700 dark:text-neutral-200 hover:bg-blue-50 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all group/item">             
-                            <div class="w-8 h-8 rounded-xl  dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover/item:scale-110 transition-transform">               
-                                <span class="material-symbols-outlined text-[18px]">home</span>             
-                            </div>             
-                            <div>               
-                                <div class="font-bold">Home 1</div>                            
-                            </div>           
+                    <div class="nav-dropdown-content">           
+                        <a href="index.html" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-700 dark:text-neutral-200 hover:bg-blue-50 dark:hover:bg-neutral-900 font-bold text-xs transition-colors mb-1">             
+                            <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home</span>             
+                            Home 1           
                         </a>           
-                        <!-- Active Home 2 Link with Blue Background Accent -->
-                        <a href="home2.html" class="flex items-center gap-1 px-4 py-0 rounded-2xl text-xs font-semibold text-grey-500 bg-white dark:bg-blue-500 transition-all group/item shadow-sm">             
-                            <div class="w-8 h-8 rounded-xl bg-white dark:bg-blue-950 text-blue-600 flex items-center justify-center group-hover/item:scale-110 transition-transform">               
-                                <span class="material-symbols-outlined text-[18px]">home_work</span>             
-                            </div>             
-                            <div>               
-                                <div class="font-bold">Home 2</div>                          
-                            </div>           
+                        <a href="home2.html" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-700 dark:text-neutral-200 hover:bg-blue-50 dark:hover:bg-neutral-900 font-bold text-xs transition-colors">             
+                            <span class="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">home_work</span>             
+                            Home 2           
                         </a>         
                     </div>       
-                </div>  
-           <a href="about.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a>     
-                <a href="services.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>       
-                <a href="prepare.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>       
-                <a href="pricing.html" class="px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>       
+                </div>    
+                <a href="about.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a>     
+                <a href="services.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>       
+                <a href="prepare.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Scan</a>       
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a>       
+                <a href="blog.html" class="px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
                 <a href="contact.html" class="px-4 py-2 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-sm font-bold transition-all">Contact</a>     
             </nav>     
             <!-- Right Utility Actions & Mobile Hamburger Toggle -->     
             <div class="flex items-center gap-2">       
-                <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Text Direction"></button>       
+                <button id="rtlToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm text-xs font-black uppercase tracking-wider" title="Toggle Text Direction">LTR</button>       
                 <button id="themeToggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-neutral-800 transition-all border-2 border-blue-200 dark:border-neutral-800 flex items-center justify-center shadow-sm" title="Toggle Dark/Light Mode"></button>       
                 <a href="contact.html#booking" class="hidden sm:inline-flex bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">         
                     Book Appointment       
@@ -173,10 +164,11 @@
                     Home 2       
                 </a>     
             </div>  
-         <a href="about.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">About Us</a>   
+            <a href="about.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">About Us</a>   
             <a href="services.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Services</a>     
             <a href="prepare.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Prepare for Scan</a>     
             <a href="pricing.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Pricing & Insurance</a>     
+            <a href="blog.html" class="block px-4 py-3 rounded-xl font-semibold text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors">Blog</a>
             <a href="contact.html" class="block px-4 py-3 rounded-xl font-bold text-white bg-blue-600 shadow">Contact</a>     
             <div class="pt-4 border-t-2 border-slate-100 dark:border-neutral-800">       
                 <a href="contact.html#booking" class="block w-full text-center bg-blue-600 dark:bg-blue-500 text-white py-3.5 rounded-xl font-bold shadow-md">Book Appointment</a>     
@@ -184,17 +176,17 @@
         </div> 
     </header>     
 
-    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-black transition-colors duration-300">         
+    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-black transition-colors duration-300 space-y-24">         
         <!-- Section Header -->         
-        <div class="text-center max-w-6xl mx-auto mb-20 reveal-from-top bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end)),url('https://imgs.search.brave.com/ld-vhgw--E3BAq1vV_b39VoaXGTThEBim7jXgCKnmno/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTEv/Mjc2LzY0OS9zbWFs/bC9ibG9jay1zeW1i/b2xzLXRlbGVwaG9u/ZS1lbWFpbC1hZGRy/ZXNzLW9yLWVtYWls/LXRvLWNvbnRhY3Qt/bWFya2V0aW5nLWlk/ZWFzLWZyZWUtcGhv/dG8uanBlZw')] bg-cover bg-center p-32 rounded-xl">             
-            <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Connect With Us</span>             
-            <h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-2 text-slate-900 dark:text-white">Location, Hours & Instant Booking</h1>             
-            <p class="mt-4 text-slate-600 dark:text-neutral-300 text-base leading-relaxed font-semibold">                 
+        <div class="text-center max-w-6xl mx-auto mb-20 reveal-from-top bg-[linear-gradient(to_right,rgba(3,7,18,0.9),rgba(15,23,42,0.8)),url('https://imgs.search.brave.com/WSLW7EAf9BEY0t6ADo5KFl0Qlbh1gyVEmtBsNuMdLVk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDgw/MzkyNjE4L3Bob3Rv/L3dlYi1jb250YWN0/LXVzLWNvbmNlcHQu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PXJOT19ENXdLMkNZ/Y3NNaExNSzlQVTVr/bnk4OGdGd0lER0N5/SHk4TUFXNjA9')] bg-cover bg-center p-16 sm:p-32 rounded-3xl border-2 border-blue-500/30 shadow-2xl">             
+            <span class="text-blue-400 font-black uppercase text-xs tracking-widest bg-blue-600/20 px-4 py-1.5 rounded-full border border-blue-500/30">Connect With Us</span>             
+            <h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-4 text-white">Location, Hours & Instant Booking</h1>             
+            <p class="mt-4 text-neutral-300 text-base leading-relaxed font-semibold max-w-3xl mx-auto">                 
                 Whether you need to schedule an advanced diagnostic scan, transmit a physician referral order, or speak with a billing advocate, our administrative team is available to assist you.             
             </p>         
         </div>         
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">             
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">             
             <!-- Left Column: Location & Contact Info Cards -->             
             <div class="lg:col-span-5 space-y-6 reveal-from-left">                 
                 <div class="glossy-card p-8 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-6">                     
@@ -298,7 +290,7 @@
         </div>         
 
         <!-- Additional Content Section: Department Direct Extensions -->         
-        <div class="mb-20 space-y-8 reveal-from-bottom">             
+        <div class="space-y-8 reveal-from-bottom">             
             <div class="text-center max-w-2xl mx-auto">                 
                 <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Direct Access</span>                 
                 <h2 class="text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Department Extensions & Desk Direct Lines</h2>                 
@@ -322,7 +314,7 @@
                     <p class="text-xs font-black text-blue-600 dark:text-blue-400 pt-2">Ext. 312 | records@auraimaging.com</p>                 </div>             </div>         </div>         
 
         <!-- Additional Content Section: Quick Support FAQ with Interactive Dropdown Buttons -->         
-        <div class="glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl mb-20 space-y-8 reveal-from-bottom">             
+        <div class="glossy-card p-8 sm:p-12 rounded-3xl border-2 border-blue-300/40 dark:border-neutral-800 shadow-xl space-y-8 reveal-from-bottom">             
             <div class="text-center max-w-2xl mx-auto">                 
                 <span class="text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-wider">Assistance Hub</span>                 
                 <h2 class="text-2xl sm:text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Frequently Asked Contact Questions</h2>             
@@ -372,68 +364,74 @@
     </main>     
 
     <!-- Professional Enterprise Footer -->     
-    <footer class="bg-black text-white border-t-2 border-blue-600 py-16 text-sm">       
+    <footer class="bg-white dark:bg-black text-slate-900 dark:text-white border-t-2 border-blue-600 py-16 text-sm transition-colors duration-300">       
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">         
             <div class="space-y-4">           
                 <div class="flex items-center gap-2">             
-                    <!-- Logo -->
-<a href="index.html" class="flex items-center gap-3 group shrink-0">
-  <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-    <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
-  </div>
-
-</a>          
-                    <span class="text-xl font-black text-white">Aura <span class="text-blue-400">Imaging</span></span>           
+                    <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                      <div class="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-neutral-900 border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center p-2 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                        <img src="./mri.png" alt="Aura Logo" class="w-full h-full object-contain dark:filter dark:invert" />
+                      </div>
+                      <div class="flex flex-col leading-none">
+                        <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Aura</span>
+                        <span class="text-xs font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase mt-0.5">Imaging</span>
+                      </div>
+                    </a>           
                 </div>           
-                <p class="text-xs leading-relaxed text-neutral-400 font-semibold">             
+                <p class="text-xs leading-relaxed text-slate-600 dark:text-neutral-400 font-semibold">             
                     State-of-the-art diagnostic imaging center providing precision MRI, CT, ultrasound, and X-ray services.           
                 </p>           
                 <!-- Social Media Icons -->           
                 <div class="flex items-center gap-3 pt-2">             
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="LinkedIn">               
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="LinkedIn">               
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>             
                     </a>             
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Twitter / X">               
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="Twitter / X">               
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>             
                     </a>             
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="Facebook">               
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="Facebook">               
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>             
                     </a>             
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-900 text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-neutral-800" title="YouTube">               
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>             </a>           </div>         </div>         <div>           
-                <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>           
-                <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">             
-                    <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home 1</a></li>             
-                    <li><a href="home2.html" class="hover:text-blue-400 transition-colors">Home 2</a></li> 
-                    <li><a href="about.html" class="hover:text-blue-400 transition-colors">About Us</a></li>            
-                    <li><a href="services.html" class="hover:text-blue-400 transition-colors">Services & Modalities</a></li>             
-                    <li><a href="prepare.html" class="hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>             
-                    <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>             
-                    <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact & Booking</a></li>           
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-white hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center shadow font-bold border border-blue-200 dark:border-neutral-800" title="YouTube">               
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>             
+                    </a>           
+                </div>         
+            </div>         
+            <div>           
+                <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>           
+                <ul class="space-y-2.5 text-xs font-semibold text-slate-600 dark:text-neutral-400">             
+                    <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home 1</a></li>             
+                    <li><a href="home2.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home 2</a></li> 
+                    <li><a href="about.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a></li>            
+                    <li><a href="services.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services & Modalities</a></li>             
+                    <li><a href="prepare.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prepare for Your Scan</a></li>             
+                    <li><a href="pricing.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing & Insurance</a></li>             
+                    <li><a href="blog.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact & Booking</a></li>           
                 </ul>         
             </div>         
             <div>           
-                <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>           
-                <ul class="space-y-2.5 text-xs font-semibold text-neutral-300">             
-                    <li><a href="services.html#3T_Wide" class="hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>             
-                    <li><a href="services.html#CT_Scan" class="hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>             
-                    <li><a href="services.html#Ultrasound" class="hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>             
-                    <li><a href="services.html#XRay" class="hover:text-blue-400 transition-colors">Digital X-Ray</a></li>           
+                <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Modalities</h4>           
+                <ul class="space-y-2.5 text-xs font-semibold text-slate-600 dark:text-neutral-400">             
+                    <li><a href="services.html#3T_Wide" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">3T Wide-Bore MRI</a></li>             
+                    <li><a href="services.html#CT_Scan" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">128-Slice CT Scan</a></li>             
+                    <li><a href="services.html#Ultrasound" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">High-Res Ultrasound</a></li>             
+                    <li><a href="services.html#XRay" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Digital X-Ray</a></li>           
                 </ul>         
             </div>         
             <div>           
-                <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>           
-                <p class="text-xs text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>           
-                <p class="text-xs text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>           
-                <p class="text-xs text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>         
+                <h4 class="font-bold text-slate-900 dark:text-white mb-4 text-xs uppercase tracking-wider">Contact Center</h4>           
+                <p class="text-xs text-slate-600 dark:text-neutral-400 mb-2 font-semibold">1250 Medical Plaza Way, Suite 100</p>           
+                <p class="text-xs text-slate-600 dark:text-neutral-400 mb-2 font-semibold">Phone: (555) 123-4567</p>           
+                <p class="text-xs text-slate-600 dark:text-neutral-400 font-semibold">Email: scheduling@auraimaging.com</p>         
             </div>       
         </div>       
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 font-semibold">         
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-200 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 dark:text-neutral-400 font-semibold">         
             <p>&copy; 2026 Aura Diagnostic Imaging Center. All rights reserved.</p>         
             <div class="flex gap-6 mt-4 md:mt-0">           
-                <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>           
-                <a href="hipaa.html" class="hover:text-white transition-colors">HIPAA Compliance</a>           
-                <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>         
+                <a href="privacy.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">Privacy Policy</a>           
+                <a href="hipaa.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">HIPAA Compliance</a>           
+                <a href="terms.html" class="hover:text-blue-600 dark:hover:text-white transition-colors">Terms of Use</a>         
             </div>       
         </div>     
     </footer>     
@@ -464,14 +462,17 @@
                     themeToggleBtn.innerHTML = `<span class="material-symbols-outlined">${isDark ? 'light_mode' : 'dark_mode'}</span>`;           
                 }         }         
 
-            // RTL/LTR Toggle with custom alignment lines icon         
+            // RTL/LTR Toggle with text labels         
             const rtlToggleBtn = document.getElementById('rtlToggle');         
             if (rtlToggleBtn) {           
-                rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${htmlElement.getAttribute('dir') === 'rtl' ? 'format_align_right' : 'format_align_left'}</span>`;           
+                const isRtl = htmlElement.getAttribute('dir') === 'rtl';
+                rtlToggleBtn.textContent = isRtl ? 'LTR' : 'RTL';
                 rtlToggleBtn.addEventListener('click', () => {             
-                    const isRtl = htmlElement.getAttribute('dir') === 'rtl';             
-                    htmlElement.setAttribute('dir', isRtl ? 'ltr' : 'rtl');             
-                    rtlToggleBtn.innerHTML = `<span class="material-symbols-outlined">${!isRtl ? 'format_align_right' : 'format_align_left'}</span>`;           
+                    const currentIsRtl = htmlElement.getAttribute('dir') === 'rtl';             
+                    const newDir = currentIsRtl ? 'ltr' : 'rtl';
+                    htmlElement.setAttribute('dir', newDir);             
+                    localStorage.setItem('dir', newDir);             
+                    rtlToggleBtn.textContent = newDir === 'rtl' ? 'LTR' : 'RTL';
                 });         
             }         
 
@@ -486,34 +487,6 @@
                 document.addEventListener('click', (e) => {             
                     if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {               
                         mobileMenu.classList.add('hidden');             
-                    }           
-                });         
-            }         
-
-            // Desktop Home Dropdown Toggle         
-            const homeDropdownBtn = document.getElementById('homeDropdownBtn');         
-            const homeDropdownMenu = document.getElementById('homeDropdownMenu');         
-            if (homeDropdownBtn && homeDropdownMenu) {           
-                homeDropdownBtn.addEventListener('click', (e) => {             
-                    e.stopPropagation();             
-                    homeDropdownMenu.classList.toggle('hidden');           
-                });           
-                document.addEventListener('click', () => {             
-                    if (!homeDropdownMenu.classList.contains('hidden')) {               
-                        homeDropdownMenu.classList.add('hidden');             
-                    }           
-                });         
-            }         
-
-            // Mobile Home Submenu Accordion Toggle         
-            const mobileHomeToggle = document.getElementById('mobileHomeToggle');         
-            const mobileHomeSubmenu = document.getElementById('mobileHomeSubmenu');         
-            const mobileHomeChevron = document.getElementById('mobileHomeChevron');         
-            if (mobileHomeToggle && mobileHomeSubmenu) {           
-                mobileHomeToggle.addEventListener('click', () => {             
-                    mobileHomeSubmenu.classList.toggle('hidden');             
-                    if (mobileHomeChevron) {               
-                        mobileHomeChevron.classList.toggle('rotate-180');             
                     }           
                 });         
             }         
